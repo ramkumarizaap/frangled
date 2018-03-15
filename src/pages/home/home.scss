@@ -1,0 +1,39 @@
+page-home
+{
+	.crop-list ion-item:nth-child(even)
+	{
+		border-right:none;
+	}
+	.crop-list ion-item
+	{
+		border-right:1px solid #3c3c3c;
+		border-bottom:1px solid #3c3c3c;
+		width:50%;
+		float:left;
+		text-align:center;
+	}
+	ion-item img
+	{
+		max-height:80px;
+		max-width:100px;
+		height:80px;
+	}
+	ion-searchbar
+  {
+    background:transparent;
+  }
+  ion-searchbar input
+  {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #fff !important;
+    color: #fff !important;
+  }
+  .searchbar-search-icon{display: none;}
+  ion-searchbar input::placeholder
+  {
+    color:red !important;
+    font-weight: bold;
+  }
+}

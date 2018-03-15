@@ -1,0 +1,47 @@
+<ion-content>
+  <div class="logo">
+      <img src="assets/icon/food.png">
+      <h3>NEWFANGLED PURCHASING</h3>
+  </div>
+  <div class="form-div">
+    <form novalidate="" [formGroup]="_loginForm" (submit)="_login()" method="post">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          {{'Email' | translate}}
+        </ion-label>
+        <ion-input  formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.hasError('required') && _loginForm.controls.email.touched">
+        <p ion-text text-wrap>Please Enter Email-ID</p>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.invalid  && _loginForm.controls.email.dirty && _loginForm.controls.email.value!=''">
+        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="key" item-start class="text-primary"></ion-icon>
+          {{'Password' | translate}}
+        </ion-label>
+        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>
+      </ion-item>
+       <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>
+      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.hasError('required') && _loginForm.controls.password.touched">
+        <p ion-text text-wrap>Please Enter Password</p>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.invalid  && _loginForm.controls.password.dirty && _loginForm.controls.password.value!=''">
+        <p ion-text text-wrap>Please enter atleast 6 characters.</p>
+      </ion-item>
+      <button type="submit" ion-button block>{{'Login' | translate}}</button>
+      <button type="button" ion-button block color="danger" (click)="_gotoRegisterPage()">{{'Signup as Buyer' | translate}}</button>
+      <button type="button" ion-button block color="dark" (click)="_scanCard()">{{'Signup as Farmer' | translate}}</button>
+    </form>
+  </div>
+  <ion-item class="lang-select">
+    <ion-label>{{'Select Language' | translate}}</ion-label>
+    <ion-select placeholder="Select Language" (ionChange)="_changeLanguage($event)">
+      <ion-option selected value='en'>English</ion-option>
+      <ion-option value='ta'>{{'Tamil'| translate}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

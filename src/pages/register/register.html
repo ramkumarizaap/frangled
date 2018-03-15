@@ -1,0 +1,67 @@
+<ion-content>
+  <div class="logo">
+      <img src="assets/icon/food.png">
+      <h3>Welcome to NewFangled Purchasing Registration!</h3>
+  </div>
+  <div class="form-div">
+    <form novalidate="" [formGroup]="_registerForm" method="post">
+      <!--EMAIL INPUT-->
+      <ion-item class="profile-photo" (click)="_showPhoto()">
+        <img src="assets/icon/user.png">
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input  formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.hasError('required') && _registerForm.controls.email.touched">
+        <p ion-text text-wrap>Please Enter Email-ID</p>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.invalid  && _registerForm.controls.email.dirty && _registerForm.controls.email.value!=''">
+        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>
+      </ion-item>
+      <!--PASSWORD INPUT-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="key" item-start class="text-primary"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>
+      </ion-item>
+      <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.hasError('required') && _registerForm.controls.password.touched">
+        <p ion-text text-wrap>Please Enter Password</p>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.invalid  && _registerForm.controls.password.dirty && _registerForm.controls.password.value!=''">
+        <p ion-text text-wrap>Please enter atleast 6 characters.</p>
+      </ion-item>
+      <!--NAME-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+          Name
+        </ion-label>
+        <ion-input  formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.name.hasError('required') && _registerForm.controls.name.touched">
+        <p ion-text text-wrap>Please Enter Name</p>
+      </ion-item>
+      <!--PHONE NUMBER-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="call" item-start class="text-primary"></ion-icon>
+          Phone
+        </ion-label>
+        <ion-input formControlName="phone"  type="number"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.phone.invalid  && _registerForm.controls.phone.dirty && _registerForm.controls.phone.value!=''">
+        <p ion-text text-wrap>Please enter atleast 10 characters.</p>
+      </ion-item>
+      <!--ADDRESS-->
+    </form>
+    <button ion-button block [disabled]="!_registerForm.valid">Register</button>
+    <button (click)="_goBack()" ion-button color="danger" block><ion-icon name="ios-arrow-round-back"></ion-icon>&nbsp;&nbsp;Back</button>
+  </div>
+</ion-content>

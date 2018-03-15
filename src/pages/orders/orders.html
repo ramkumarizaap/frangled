@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Orders' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="_changeLanguage(lang)">
+        {{'EN' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let o of orders">
+    <ion-card-header>
+      {{o.o_date}} {{o.o_month | translate}} {{o.o_year}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        {{'Crop' | translate}}
+        <span item-end>{{o.crop | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Quantity' | translate}}
+        <span item-end>{{o.quantity | translate}}{{'kg' | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Price' | translate}}
+        <span item-end>{{'Rs.' | translate}}{{o.price | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Est. Delivery' | translate}}
+        <ion-badge item-end>{{o.d_date}} {{o.d_month | translate}} {{o.d_year}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        {{'Status' | translate}}
+        <ion-badge color="secondary" item-end>{{o.status | translate}}</ion-badge>
+      </ion-item>
+      <button ion-button (click)="_viewOrder(o.order_id)" color="dark" block>{{'View' | translate}}</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

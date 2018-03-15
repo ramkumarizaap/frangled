@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'View' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="_changeLanguage(lang)">
+        {{'EN' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-row>
+    <img src="{{order.image}}" style="height: 200px;width: 100%;">
+  </ion-row>
+  <ion-row>
+    <h3>{{ order.crop | translate}}</h3>
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      {{'Quantity' | translate}}
+      <span item-end>{{order.quantity}}{{ 'kg' | translate}}</span>
+    </ion-item>
+    <ion-item>
+      {{'Price' | translate}}
+      <span item-end><b>{{'Rs.' | translate}}{{order.total_price}}</b></span>
+    </ion-item>
+    <ion-item>
+      {{'Est. Delivery' | translate}}
+      <ion-badge item-end>10 Mar 2018</ion-badge>
+    </ion-item>
+  </ion-row>
+  <ion-row style="margin-top :20px;">
+    <h3>{{'Farmer Details' | translate}}</h3>
+    <ion-item>
+      {{'Name' | translate}}
+      <span item-end>{{order.farmer_name}}</span>
+    </ion-item>
+    <ion-item class="address">
+      {{'Address' | translate}}
+      <p>&nbsp;</p>
+      <p><ion-icon name="pin"></ion-icon>&nbsp;&nbsp;{{order.address}}</p>
+    </ion-item>
+    <ion-item>
+      {{'Phone' | translate}}
+      <ion-badge color="danger" item-end  (click)="_callFarmer(order.phone)">
+        <ion-icon name="call"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+        {{order.phone}}
+      </ion-badge>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <button ion-button block color="danger">{{'Get Directions' | translate}}</button>
+  </ion-row>
+</ion-content>

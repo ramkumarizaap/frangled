@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{farmer.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-icon name="ios-call">&nbsp;&nbsp;</ion-icon>
+				Phone : {{farmer.phone}}
+		</ion-item>
+		<ion-item>
+			<ion-icon name="ios-pin">&nbsp;&nbsp;</ion-icon>
+				{{farmer.address1}}, {{farmer.address2}}, {{farmer.city}}, {{farmer.state}}, IN
+		</ion-item>
+		<ion-item>
+			<ion-icon name="ios-pricetag">&nbsp;&nbsp;</ion-icon>
+				Price : {{farmer.price}}
+		</ion-item>
+		<ion-item>
+			<ion-icon name="ios-basket">&nbsp;&nbsp;</ion-icon>
+				Available Quantity : {{farmer.quantity}}
+		</ion-item>
+	</ion-list>
+	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">
+		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>
+		Order Now
+	</button>
+	<button ion-button block color="dark">
+		<ion-icon name="ios-navigate">&nbsp;&nbsp;</ion-icon>
+		Get Directions
+	</button>
+</ion-content>

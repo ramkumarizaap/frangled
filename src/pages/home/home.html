@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="!_searchField">{{'Crops' | translate}}</ion-title>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionCancel)="clearFilter($event)" (ionInput)="setFilteredItems($event)" *ngIf="_searchField" class="searchfield" type="text" placeholder="Search..."></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button *ngIf="!_searchField" tappable (click)="_showSearchInput()">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+      <button *ngIf="_searchField" ion-button tappable (click)="_hideSearchInput()">
+        <ion-icon name="ios-close-circle"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="_changeLanguage(lang)">
+        {{'EN' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="crop-list">
+    <ion-item *ngFor="let c of crops" (click)="_gotoFarmer(c)">
+      <img src="{{c.image}}">
+      <p>{{c.name | translate}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

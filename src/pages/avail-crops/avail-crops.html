@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Crops List' | translate}}</ion-title>
+     <ion-buttons end>
+     		<button ion-button tappable (click)="_changeLanguage(lang)">
+        	{{'EN' | translate}}
+      	</button>
+     </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card *ngFor="let c of crops" (click)="_showAction(c)">
+	  <ion-card-header>
+	    <b>{{c.crop | translate}}</b>
+	  </ion-card-header>
+	  <ion-card-content>
+	    <p class="qty-label" text-left>{{'Available Quantity' | translate}}</p>
+      <p class="value-label" text-right>{{c.quantity}}</p>
+	  </ion-card-content>
+	</ion-card>
+	<ion-fab right bottom>
+    <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -16,10 +16,22 @@ export class CommonService {
     return this.http.get(apiUrl+'service/crops' ,options).map(res => res.json())
        .toPromise();
   }
+  getFarmerCrops(id) {
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(apiUrl+'service/farmer_crops?id='+id ,options).map(res => res.json())
+       .toPromise();
+  }
   getFarmers(id) {
     let headers = new Headers();
     let options = new RequestOptions({ headers: headers });
     return this.http.get(apiUrl+'service/farmers?id='+id ,options).map(res => res.json())
+       .toPromise();
+  }
+  delete(data) {
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(apiUrl+'service/delete',data ,options).map(res => res.json())
        .toPromise();
   }
  
@@ -46,6 +58,13 @@ export class CommonService {
     let headers = new Headers();
     let options = new RequestOptions({ headers: headers });
     return this.http.put(apiUrl+'service/createorder',data ,options).map(res => res.json())
+       .toPromise();
+  }
+
+  postCrop(data) {
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(apiUrl+'service/createcrop',data ,options).map(res => res.json())
        .toPromise();
   }
   registerFarmer(data) {

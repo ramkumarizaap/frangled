@@ -12,6 +12,8 @@ import { FarmerPage } from '../pages/farmer/farmer';
 import { FarmerDetailPage } from '../pages/farmer-detail/farmer-detail';
 import { OrdersPage } from '../pages/orders/orders';
 import { OrderDetailPage } from '../pages/order-detail/order-detail';
+import { AvailCropsPage } from '../pages/avail-crops/avail-crops';
+import { CropAddPage } from '../pages/crop-add/crop-add';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -32,7 +34,9 @@ import { CallNumber } from '@ionic-native/call-number';
     FarmerPage,
     FarmerDetailPage,
     OrdersPage,
-    OrderDetailPage
+    OrderDetailPage,
+    AvailCropsPage,
+    CropAddPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { CallNumber } from '@ionic-native/call-number';
     FarmerPage,
     FarmerDetailPage,
     OrdersPage,
-    OrderDetailPage
+    OrderDetailPage,
+    AvailCropsPage,
+    CropAddPage
   ],
   providers: [
     StatusBar,

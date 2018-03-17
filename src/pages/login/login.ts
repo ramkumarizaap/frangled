@@ -5,6 +5,7 @@ import { regexPatterns } from '../../providers/regexPatterns';
 import { GlobalVars } from '../../providers/globalVars';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { AvailCropsPage } from '../avail-crops/avail-crops';
 import { CommonService } from '../../providers/commonService';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import xml2js from 'xml2js';  
@@ -27,7 +28,7 @@ export class LoginPage {
      this.mCtrl.swipeEnable(false);
      this._loginForm = this._formBuilder.group({
       //EMAIL
-      email: ["ramkumar.izaap@gmail.com",
+      email: ["sathish.izaap@gmail.com",
         Validators.compose([
           Validators.required,Validators.pattern(regexPatterns.email)
         ])
@@ -89,7 +90,7 @@ export class LoginPage {
                   load.dismiss();
                   if(res.type=="register")
                   {
-                    this.navCtrl.setRoot(HomePage);
+                    this.navCtrl.setRoot(AvailCropsPage);
                   }
                   else
                   {
@@ -99,7 +100,7 @@ export class LoginPage {
                       buttons:[{
                         text:'OK',
                         handler:()=>{
-                          this.navCtrl.setRoot(HomePage);
+                            this.navCtrl.setRoot(AvailCropsPage);
                         }
                       }]
                     });
@@ -142,12 +143,15 @@ export class LoginPage {
       });
       load.present();
       this.commonService.login(this._loginForm.value).then((res)=>{
-        console.log(res);
+        // console.log("Success :"+JSON.stringify(res));
         load.dismiss();
         if(res.status=="success")
         {
           this.globalVars.setUserdata(JSON.stringify(res.msg));
-          this.navCtrl.setRoot(HomePage);
+          if(res.msg.role=='1')
+            this.navCtrl.setRoot(HomePage);
+          else if(res.msg.role=='2')
+            this.navCtrl.setRoot(AvailCropsPage);
         }
         else{
           let error = this.alertCtrl.create({

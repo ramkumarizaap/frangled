@@ -25708,6 +25708,34 @@ ion-app.cameraView, ion-app.cameraView ion-content, ion-app.cameraView .nav-deco
   color: #fff;
 }
 
+page-avail-crops p.qty-label {
+  width: 150px;
+  float: left;
+}
+
+page-avail-crops ion-card-content {
+  padding-bottom: 40px !important;
+}
+
+page-avail-crops p.value-label {
+  width: 100px;
+  float: right;
+}
+
+page-crop-add form {
+  padding-right: 10px;
+}
+
+page-crop-add button {
+  margin-left: 15px !important;
+  margin-top: 20px !important;
+}
+
+page-crop-add .error p {
+  color: red;
+  margin-left: 20px;
+}
+
 page-farmer button {
   margin: 0 !important;
 }

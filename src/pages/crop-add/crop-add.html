@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Add Crop' | translate}}</ion-title>
+     <ion-buttons end>
+     		<button ion-button tappable (click)="_changeLanguage(lang)">
+        	{{'EN' | translate}}
+      	</button>
+     </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <form action="" [formGroup]="_cropForm" (submit)="_submitCrop()" method="post" novalidate>
+      <ion-input formControlName="farmer_id" type="hidden"></ion-input>
+      <ion-input formControlName="crop_id" type="hidden"></ion-input>
+      <ion-item>
+        <ion-label floating>{{'Name' | translate}}</ion-label>
+        <ion-select formControlName="name" cancelText="{{'Cancel' | translate}}" okText="{{'OK' | translate}}">
+          <ion-option *ngFor="let c of crops" [value]="c.id">{{c.name | translate}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.name.hasError('required') && _cropForm.controls.name.touched">
+        <p ion-text text-wrap>{{'Please Enter Name' | translate}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'Quantity' | translate}}</ion-label>
+        <ion-input formControlName="quantity" type="number"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.quantity.hasError('required') && _cropForm.controls.quantity.touched">
+        <p ion-text text-wrap>{{'Please Enter Quantity' | translate}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'Price' | translate}}</ion-label>
+        <ion-input formControlName="price" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.price.hasError('required') && _cropForm.controls.price.touched">
+        <p ion-text text-wrap>{{'Please Enter Price' | translate}}</p>
+      </ion-item>
+      <button ion-button [disabled]="!_cropForm.valid" type="submit">{{'Save' | translate}}</button>
+      <button color="danger" ion-button type="button" (click)="_goBack()">{{'Cancel' | translate}}</button>
+    </form>
+</ion-content>

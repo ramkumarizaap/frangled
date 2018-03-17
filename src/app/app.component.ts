@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { AvailCropsPage } from '../pages/avail-crops/avail-crops';
 import { OrdersPage } from '../pages/orders/orders';
 import { LoginPage } from '../pages/login/login';
 import { GlobalVars } from '../providers/globalVars';
@@ -37,7 +38,7 @@ export class MyApp {
         if(this.user.role=='2')
         {
          this.pages = [
-              { title: 'My Crops', component: HomePage,icon:'ios-nutrition' },
+              { title: 'My Crops', component: AvailCropsPage,icon:'ios-nutrition' },
               { title: 'My Orders', component: LoginPage,icon:'ios-basket'}
               ];
         }

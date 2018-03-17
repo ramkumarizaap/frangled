@@ -43,5 +43,19 @@
  	 "Name":"Name",
  	 "Address":"Address",
  	 "Phone":"Phone",
- 	 "Get Directions":"Get Directions"
+ 	 "Get Directions":"Get Directions",
+ 	 "Available Quantity":"Available Quantity",
+ 	 "Edit":"Edit",
+ 	 "Delete":"Delete",
+ 	 "Cancel":"Cancel",
+ 	 "Add Crop":"Add Crop",
+ 	 "Save":"Save",
+ 	 "Please Enter Name":"Please Enter Name",
+ 	 "Please Enter Quantity":"Please Enter Quantity",
+ 	 "Please Enter Price":"Please Enter Price",
+ 	 "Please Wait...":"Please Wait...",
+ 	 "Success":"Success",
+ 	 "Error":"Error",
+ 	 "OK":"OK",
+ 	 "Crops List":"Crops List"
 }

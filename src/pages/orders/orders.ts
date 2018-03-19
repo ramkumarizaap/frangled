@@ -31,7 +31,7 @@ export class OrdersPage {
 		this.commonService.getOrders(id).then((res)=>{
 			console.log(res);
 			load.dismiss();
-			if(res.status=="success")
+			if(res.status=="success" && res.data.length > 0)
 			{
 				this.orders = res.data;
 			}
@@ -39,7 +39,7 @@ export class OrdersPage {
 			{
 				let error = this.alertCtrl.create({
 				title:'Error',
-				message:'Nor Orders Found.',
+				message:'No Orders Found.',
 				buttons:['OK']
 				});
 				error.present();
@@ -69,7 +69,7 @@ export class OrdersPage {
 
   _viewOrder(id)
   {
-  	this.commonService.getOrderById(id).then((res)=>{
+  	this.commonService.getOrderById(id,'farmer').then((res)=>{
 			console.log(res);
 			this.navCtrl.push(OrderDetailPage,{id:res.data});
 		})

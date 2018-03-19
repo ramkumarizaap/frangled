@@ -57,5 +57,7 @@
  	 "Success":"Success",
  	 "Error":"Error",
  	 "OK":"OK",
- 	 "Crops List":"Crops List"
+ 	 "Crops List":"Crops List",
+ 	 "Buyer Name":"Buyer Name",
+ 	 "Customer Details":"Customer Details"
 }

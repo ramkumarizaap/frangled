@@ -16,12 +16,36 @@
 // automatically applied to the <body> element in the app.
 .menu-logo img
 {
-	height:40px;
-	width:40px;
+	height:30px;
+	width:30px;
+	float:left;
 }
 .menu-logo ion-title p
 {
-	font-size:16px !important;
+	float:left;
+	padding-left:10px;
+	font-size:12px !important;
+}
+.user-profile
+{
+	margin-top:10px;
+	padding-left:10px;
+}
+.user-profile img
+{
+	width:60px;
+	height:50px;
+}
+.user-profile h3
+{
+	clear:both;
+	padding-top:10px;
+	color:#fff;
+	display:block;
+	width:100%;
+}
+.scroll-content{
+	margin-top:150px !important;
 }
 .transparent-body {
   background: none transparent !important;

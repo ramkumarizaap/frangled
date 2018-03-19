@@ -12,7 +12,9 @@ import { FarmerPage } from '../pages/farmer/farmer';
 import { FarmerDetailPage } from '../pages/farmer-detail/farmer-detail';
 import { OrdersPage } from '../pages/orders/orders';
 import { OrderDetailPage } from '../pages/order-detail/order-detail';
+import { OrderListPage } from '../pages/order-list/order-list';
 import { AvailCropsPage } from '../pages/avail-crops/avail-crops';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { CropAddPage } from '../pages/crop-add/crop-add';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +26,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CallNumber } from '@ionic-native/call-number';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { Camera } from '@ionic-native/camera';
 @NgModule({
   declarations: [
     MyApp,
@@ -36,7 +40,9 @@ import { CallNumber } from '@ionic-native/call-number';
     OrdersPage,
     OrderDetailPage,
     AvailCropsPage,
-    CropAddPage
+    CropAddPage,
+    MyOrdersPage,
+    OrderListPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,9 @@ import { CallNumber } from '@ionic-native/call-number';
     OrdersPage,
     OrderDetailPage,
     AvailCropsPage,
-    CropAddPage
+    CropAddPage,
+    MyOrdersPage,
+    OrderListPage
   ],
   providers: [
     StatusBar,
@@ -72,6 +80,8 @@ import { CallNumber } from '@ionic-native/call-number';
     SplashScreen,
     CommonService,
     CallNumber,
+    LaunchNavigator,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

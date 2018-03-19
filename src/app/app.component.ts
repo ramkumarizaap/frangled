@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { AvailCropsPage } from '../pages/avail-crops/avail-crops';
 import { OrdersPage } from '../pages/orders/orders';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { LoginPage } from '../pages/login/login';
 import { GlobalVars } from '../providers/globalVars';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  public user={role:''};
+  public user={role:'',name:"Guest"};
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any,icon:string}>;
@@ -32,16 +33,24 @@ export class MyApp {
 
     this.app.viewWillEnter.subscribe(() => {
        this.user = this.globalvars.getUserdata();
-       // console.log(this.user);
+       console.log(this.user);
       if(this.user!=null)
       {
         if(this.user.role=='2')
         {
-         this.pages = [
+          this.translateService.use('ta');
+           this.pages = [
               { title: 'My Crops', component: AvailCropsPage,icon:'ios-nutrition' },
-              { title: 'My Orders', component: LoginPage,icon:'ios-basket'}
+              { title: 'My Orders', component: MyOrdersPage,icon:'ios-basket'}
               ];
         }
+      }
+      else
+      {
+        this.pages = [
+          { title: 'Crops', component: HomePage,icon:'ios-nutrition' },
+          { title: 'Orders', component: OrdersPage,icon:'ios-cart' }
+        ];
       }
     });
 

@@ -4,6 +4,7 @@ import { GlobalVars } from '../../providers/globalVars';
 import { CommonService } from '../../providers/commonService';
 import { TranslateService } from '@ngx-translate/core';
 import { CallNumber } from '@ionic-native/call-number';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 @Component({
   selector: 'page-order-detail',
   templateUrl: 'order-detail.html'
@@ -12,12 +13,13 @@ export class OrderDetailPage {
 	public lang = 'ta';
 	public order;
 	public oid;
-	public user="";
+	public user= {id:'',address1:'',address2:'',city:'',state:'',zip:''};
 	constructor(public navCtrl: NavController,public alertCtrl:AlertController,public params:NavParams,
     public loader:LoadingController,public commonService:CommonService,public translateService: TranslateService,
-    public globalVars:GlobalVars,public callNumber: CallNumber)
+    public globalVars:GlobalVars,public callNumber: CallNumber,public launchNavigator: LaunchNavigator)
 	{
 		this.order = this.params.get('id');
+		this.user = this.globalVars.getUserdata();
 		console.log(this.order);
 	}
 
@@ -45,4 +47,18 @@ export class OrderDetailPage {
 		  });
   }
 
+  _getDirections(address)
+  {
+
+ 		let from = this.user.address1+', '+this.user.address2+', '+this.user.city+', '+this.user.state+', '+this.user.zip+', IN';
+  	let options: LaunchNavigatorOptions = {
+		  start: from,
+		  app: this.launchNavigator.APP.GOOGLE_MAPS
+		};
+	  this.launchNavigator.navigate(address, options)
+	  .then((success) =>{ alert('Launched navigator');
+		})
+		.catch((error) => { alert('Error launching navigator'+ error);
+		});
+	}
 }

@@ -28,13 +28,13 @@ export class LoginPage {
      this.mCtrl.swipeEnable(false);
      this._loginForm = this._formBuilder.group({
       //EMAIL
-      email: ["sathish.izaap@gmail.com",
+      email: ["",
         Validators.compose([
           Validators.required,Validators.pattern(regexPatterns.email)
         ])
       ],
       //PASSWORD
-      password: ["password", Validators.compose([
+      password: ["", Validators.compose([
           Validators.required,
           Validators.minLength(6)
         ])
@@ -66,7 +66,8 @@ export class LoginPage {
 
   _scanCard()
   {
-      this.barcode.scan().then((barcodeData) => {
+    let options = {disableSuccessBeep:true};
+      this.barcode.scan(options).then((barcodeData) => {
         xml2js.parseString(barcodeData.text, { explicitArray: false }, (error, result) => {
       
               if (error)
@@ -85,17 +86,18 @@ export class LoginPage {
                   content:'Please Wait...'
                 });
                 load.present();
-                alert("Success :"+JSON.stringify(result.PrintLetterBarcodeData.$));
                 this.commonService.registerFarmer(result.PrintLetterBarcodeData.$).then((res)=>{
                   load.dismiss();
-                  if(res.type=="register")
+                  if(res.type=="login")
                   {
+                    this.globalVars.setUserdata(JSON.stringify(res.data));
                     this.navCtrl.setRoot(AvailCropsPage);
                   }
                   else
                   {
+                    this.globalVars.setUserdata(JSON.stringify(res.data));
                     let success = this.alertCtrl.create({
-                      title:'Error',
+                      title:'Success',
                       message:'Registration done succesfully.',
                       buttons:[{
                         text:'OK',

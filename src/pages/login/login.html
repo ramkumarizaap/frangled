@@ -32,7 +32,7 @@
       <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.invalid  && _loginForm.controls.password.dirty && _loginForm.controls.password.value!=''">
         <p ion-text text-wrap>Please enter atleast 6 characters.</p>
       </ion-item>
-      <button type="submit" ion-button block>{{'Login' | translate}}</button>
+      <button type="submit" [disabled]="!_loginForm.valid" ion-button block>{{'Login' | translate}}</button>
       <button type="button" ion-button block color="danger" (click)="_gotoRegisterPage()">{{'Signup as Buyer' | translate}}</button>
       <button type="button" ion-button block color="dark" (click)="_scanCard()">{{'Signup as Farmer' | translate}}</button>
     </form>

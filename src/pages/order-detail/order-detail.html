@@ -52,6 +52,6 @@
     </ion-item>
   </ion-row>
   <ion-row>
-    <button ion-button block color="danger">{{'Get Directions' | translate}}</button>
+    <button (click)="_getDirections(order.geo)" ion-button block color="danger">{{'Get Directions' | translate}}</button>
   </ion-row>
 </ion-content>

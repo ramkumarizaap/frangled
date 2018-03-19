@@ -1,0 +1,16 @@
+page-order-list
+{
+	ion-item{
+		font-size:14px !important;
+	}
+	ion-item.address ion-label
+	{
+		text-overflow:unset !important;
+		white-space:unset !important;
+	}
+	ion-card-header
+	{
+		font-weight:bold;
+		text-align:center;
+	}
+}

@@ -41,10 +41,10 @@ export class CommonService {
     return this.http.get(apiUrl+'service/orders?id='+id,options).map(res => res.json())
        .toPromise();
   }
-  getOrderById(id) {
+  getOrderById(id,type) {
     let headers = new Headers();
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(apiUrl+'service/order_by_id?id='+id,options).map(res => res.json())
+    return this.http.get(apiUrl+'service/order_by_id?id='+id+'&type='+type,options).map(res => res.json())
        .toPromise();
   }
   login(data) {
@@ -71,6 +71,19 @@ export class CommonService {
     let headers = new Headers();
     let options = new RequestOptions({ headers: headers });
     return this.http.put(apiUrl+'service/register_farmer',data ,options).map(res => res.json())
+       .toPromise();
+  }
+  registerBuyer(data) {
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(apiUrl+'service/register',data ,options).map(res => res.json())
+       .toPromise();
+  }
+  getFarmerOrders(id)
+  {
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(apiUrl+'service/farmer_orders?id='+id,options).map(res => res.json())
        .toPromise();
   }
 }

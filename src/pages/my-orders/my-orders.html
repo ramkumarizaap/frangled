@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'My Orders' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="_changeLanguage(lang)">
+        {{'EN' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let o of orders">
+    <ion-card-header>
+      {{o.o_date}} {{o.o_month | translate}} {{o.o_year}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        {{'Buyer Name' | translate}}
+        <span item-end>{{o.buyer_name | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Phone' | translate}}
+        <span item-end>{{o.phone | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Crop' | translate}}
+        <span item-end>{{o.crop | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Quantity' | translate}}
+        <span item-end>{{o.quantity | translate}}{{'kg' | translate}}</span>
+      </ion-item>
+      <ion-item>
+        {{'Price' | translate}}
+        <span item-end>{{'Rs.' | translate}}{{o.price | translate}}</span>
+      </ion-item>
+      <button ion-button (click)="_viewOrder(o.order_id)" color="dark" block>{{'View' | translate}}</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

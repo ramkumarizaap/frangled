@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavParams,NavController,AlertController,LoadingController } from 'ionic-angular';
 import { CommonService } from '../../providers/commonService';
+import { GlobalVars } from '../../providers/globalVars';
 import { HomePage } from '../home/home';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 // import xml2js from 'xml2js';
 @Component({
   selector: 'page-farmer-detail',
@@ -11,11 +13,14 @@ export class FarmerDetailPage
 {
 	public farmer;
 	public order;
+	public user = {id:'',address1:'',address2:'',city:'',state:'',zip:''};
 	constructor(public params:NavParams,public nav:NavController,public commonService:CommonService,
-		public alertCtrl:AlertController,public loader:LoadingController)
+		public alertCtrl:AlertController,public loader:LoadingController,
+		public globalvars:GlobalVars,public launchNavigator: LaunchNavigator)
 	{
 		this.farmer = this.params.get('id');
 		console.log(this.farmer);
+		this.user = this.globalvars.getUserdata();
 	}
 	_orderNow(crop_id,farmer_id,price,qty:number)
 	{
@@ -102,6 +107,21 @@ export class FarmerDetailPage
 				});
 				error.present();
 				return false;
+		});
+	}
+	_getDirections(address)
+  {
+  	let endpoint = address.address2+", "+address.city+", "+address.state+", "+address.zip+", IN";
+  	console.log(endpoint);
+ 		let from = this.user.address1+', '+this.user.address2+', '+this.user.city+', '+this.user.state+', '+this.user.zip+', IN';
+  	let options: LaunchNavigatorOptions = {
+		  start: from,
+		  app: this.launchNavigator.APP.GOOGLE_MAPS
+		};
+	  this.launchNavigator.navigate(endpoint, options)
+	  .then((success) =>{ alert('Launched navigator');
+		})
+		.catch((error) => { alert('Error launching navigator'+ error);
 		});
 	}
 }

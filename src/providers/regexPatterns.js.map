@@ -1,0 +1,1 @@
+{"version":3,"file":"regexPatterns.js","sourceRoot":"","sources":["regexPatterns.ts"],"names":[],"mappings":"AAAA,IAAI,aAAa,GAAG;IAChB,WAAW,EAAE,aAAa;IAC1B,KAAK,EAAE,wJAAwJ;IAC/J,QAAQ,EAAE,iDAAiD;IAC3D,WAAW,EAAE,OAAO;IACpB,GAAG,EAAC,mKAAmK;CAC1K,CAAA;AACD,OAAO,EAAC,aAAa,EAAC,CAAA"}

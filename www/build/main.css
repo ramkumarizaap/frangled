@@ -25679,12 +25679,37 @@ ion-navbar.toolbar {
 }
 
 .menu-logo img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  float: left;
 }
 
 .menu-logo ion-title p {
-  font-size: 16px !important;
+  float: left;
+  padding-left: 10px;
+  font-size: 12px !important;
+}
+
+.user-profile {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.user-profile img {
+  width: 60px;
+  height: 50px;
+}
+
+.user-profile h3 {
+  clear: both;
+  padding-top: 10px;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+
+.scroll-content {
+  margin-top: 150px !important;
 }
 
 .transparent-body {
@@ -25863,6 +25888,15 @@ page-login ion-item.lang-select .item-inner {
   border-bottom: none !important;
 }
 
+page-my-orders ion-item {
+  padding-left: 0px !important;
+}
+
+page-my-orders ion-card-header {
+  font-weight: bold;
+  text-align: center;
+}
+
 page-order-detail ion-item {
   font-size: 14px !important;
 }
@@ -25873,6 +25907,20 @@ page-order-detail ion-item.address ion-label {
 }
 
 page-order-detail ion-card-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+page-order-list ion-item {
+  font-size: 14px !important;
+}
+
+page-order-list ion-item.address ion-label {
+  text-overflow: unset !important;
+  white-space: unset !important;
+}
+
+page-order-list ion-card-header {
   font-weight: bold;
   text-align: center;
 }

@@ -25,13 +25,13 @@ page-register
 	{
 		color:#fff;
 		font-size:12px;
-		float:right;
+		float:left;
 		width:230px;
 		margin-top:5px;
 		display:block
 	}
 	.form-div{
-		width:300px;
+		// width:300px;
 		padding-right:20px;
 		padding-left:20px;
 	}
@@ -61,16 +61,26 @@ page-register
 	}
 	ion-item.profile-photo
 	{
-		height:100px;
+		height:76px;
+		border:2px solid #ccc;
+		width:80px;
 		text-align:center;
+		border-radius:100%;
+		margin:0 auto;
 	}
 	ion-item.profile-photo .item-inner
 	{
 		border-bottom:none !important;
+		padding:0 !important;
+	}
+	ion-item.profile-photo ion-label
+	{
+		margin:0 !important;
 	}
 	ion-item.profile-photo img
 	{
-		height:90px;
+		height:100%;
+		width:100%;
 	}
 
 }

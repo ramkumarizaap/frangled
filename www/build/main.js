@@ -1289,7 +1289,7 @@ var RegisterPage = (function () {
         this.actionCtrl = actionCtrl;
         this.commonService = commonService;
         this.camera = camera;
-        this.user_photo = "assets/icon/user.png";
+        this.user_photo = 'assets/icon/user.png';
         this._passwordInputType = "password";
         this._passwordIcon = "eye-off";
         this.mCtrl.swipeEnable(false);
@@ -1302,7 +1302,12 @@ var RegisterPage = (function () {
             name: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
             //PHONE
             phone: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(10)])],
-            photo: [""]
+            photo: [""],
+            address1: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
+            address2: [""],
+            city: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
+            state: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
+            zipcode: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(6)])],
         });
     }
     // Password Toggle
@@ -1348,14 +1353,17 @@ var RegisterPage = (function () {
         var _this = this;
         var options = {
             quality: 100,
+            targetWidth: 300,
+            targetHeight: 300,
+            sourceType: this.camera.PictureSourceType.CAMERA,
+            allowEdit: false,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
+            mediaType: this.camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false
         };
         this.camera.getPicture(options).then(function (imageData) {
-            _this._registerForm.value.photo = 'data:image/jpeg;base64,' + imageData;
-            _this.user_photo = 'data:image/jpeg;base64,' + imageData;
-            alert(_this._registerForm.value.photo);
+            _this.updateURI(imageData);
         })
             .catch(function (err) {
             var error = _this.alertCtrl.create({
@@ -1366,6 +1374,11 @@ var RegisterPage = (function () {
             error.present();
             return false;
         });
+    };
+    RegisterPage.prototype.updateURI = function (imageData) {
+        this._registerForm.value.photo = 'data:image/jpeg;base64,' + imageData;
+        this.user_photo = 'data:image/jpeg;base64,' + imageData;
+        alert(this.user_photo);
     };
     RegisterPage.prototype._goBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
@@ -1410,7 +1423,7 @@ var RegisterPage = (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"F:\frangled\src\pages\register\register.html"*/'<ion-content>\n\n  <div class="logo">\n\n      <img src="assets/icon/food.png">\n\n      <h3>Welcome to NewFangled Purchasing Registration!</h3>\n\n  </div>\n\n  <div class="form-div">\n\n    <form novalidate (submit)="_submitRegister()" [formGroup]="_registerForm" method="post">\n\n      <!--EMAIL INPUT-->\n\n      <ion-item class="profile-photo" (click)="_showPhoto()">\n\n        <img src="{{this.user_photo}}">\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="mail" item-start class="text-primary"></ion-icon>\n\n          Email\n\n        </ion-label>\n\n        <ion-input  formControlName="email" type="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.hasError(\'required\') && _registerForm.controls.email.touched">\n\n        <p ion-text text-wrap>Please Enter Email-ID</p>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.invalid  && _registerForm.controls.email.dirty && _registerForm.controls.email.value!=\'\'">\n\n        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>\n\n      </ion-item>\n\n      <!--PASSWORD INPUT-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="key" item-start class="text-primary"></ion-icon>\n\n          Password\n\n        </ion-label>\n\n        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>\n\n      </ion-item>\n\n      <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.hasError(\'required\') && _registerForm.controls.password.touched">\n\n        <p ion-text text-wrap>Please Enter Password</p>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.invalid  && _registerForm.controls.password.dirty && _registerForm.controls.password.value!=\'\'">\n\n        <p ion-text text-wrap>Please enter atleast 6 characters.</p>\n\n      </ion-item>\n\n      <!--NAME-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="person" item-start class="text-primary"></ion-icon>\n\n          Name\n\n        </ion-label>\n\n        <ion-input  formControlName="name" type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.name.hasError(\'required\') && _registerForm.controls.name.touched">\n\n        <p ion-text text-wrap>Please Enter Name</p>\n\n      </ion-item>\n\n      <!--PHONE NUMBER-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="call" item-start class="text-primary"></ion-icon>\n\n          Phone\n\n        </ion-label>\n\n        <ion-input formControlName="phone"  type="number"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.phone.invalid  && _registerForm.controls.phone.dirty && _registerForm.controls.phone.value!=\'\'">\n\n        <p ion-text text-wrap>Please enter atleast 10 characters.</p>\n\n      </ion-item>\n\n      <!--ADDRESS-->\n\n    <button type="submit" ion-button block >Register</button>\n\n    <button (click)="_goBack()" ion-button color="danger" block><ion-icon name="ios-arrow-round-back"></ion-icon>&nbsp;&nbsp;Back</button>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\register\register.html"*/
+            selector: 'page-register',template:/*ion-inline-start:"F:\frangled\src\pages\register\register.html"*/'<ion-content>\n\n  <div class="logo">\n\n      <img src="assets/icon/food.png">\n\n      <h3>Welcome to NewFangled Purchasing Registration!</h3>\n\n  </div>\n\n  <div class="form-div">\n\n    <form novalidate (submit)="_submitRegister()" [formGroup]="_registerForm" method="post">\n\n      <!--EMAIL INPUT-->\n\n      <ion-item class="profile-photo" (click)="_showPhoto()">\n\n          <img [src]="user_photo">\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="mail" item-start class="text-primary"></ion-icon>\n\n          Email\n\n        </ion-label>\n\n        <ion-input  formControlName="email" type="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.hasError(\'required\') && _registerForm.controls.email.touched">\n\n        <p ion-text text-wrap>Please Enter Email-ID</p>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.email.invalid  && _registerForm.controls.email.dirty && _registerForm.controls.email.value!=\'\'">\n\n        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>\n\n      </ion-item>\n\n      <!--PASSWORD INPUT-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="key" item-start class="text-primary"></ion-icon>\n\n          Password\n\n        </ion-label>\n\n        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>\n\n      </ion-item>\n\n      <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.hasError(\'required\') && _registerForm.controls.password.touched">\n\n        <p ion-text text-wrap>Please Enter Password</p>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.password.invalid  && _registerForm.controls.password.dirty && _registerForm.controls.password.value!=\'\'">\n\n        <p ion-text text-wrap>Please enter atleast 6 characters.</p>\n\n      </ion-item>\n\n      <!--NAME-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="person" item-start class="text-primary"></ion-icon>\n\n          Name\n\n        </ion-label>\n\n        <ion-input  formControlName="name" type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.name.hasError(\'required\') && _registerForm.controls.name.touched">\n\n        <p ion-text text-wrap>Please Enter Name</p>\n\n      </ion-item>\n\n      <!--PHONE NUMBER-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="call" item-start class="text-primary"></ion-icon>\n\n          Phone\n\n        </ion-label>\n\n        <ion-input formControlName="phone"  type="number"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.phone.invalid  && _registerForm.controls.phone.dirty && _registerForm.controls.phone.value!=\'\'">\n\n        <p ion-text text-wrap>Please enter atleast 10 characters.</p>\n\n      </ion-item>\n\n      <!--ADDRESS 1-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="pin" item-start class="text-primary"></ion-icon>\n\n          Address 1\n\n        </ion-label>\n\n        <ion-input formControlName="address1"  type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.address1.hasError(\'required\') && _registerForm.controls.address1.touched">\n\n        <p ion-text text-wrap>Please Enter Address 1.</p>\n\n      </ion-item>\n\n      <!--ADDRESS 2-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="pin" item-start class="text-primary"></ion-icon>\n\n          Address 2\n\n        </ion-label>\n\n        <ion-input formControlName="address1"  type="text"></ion-input>\n\n      </ion-item>\n\n      <!--City-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="pin" item-start class="text-primary"></ion-icon>\n\n          City\n\n        </ion-label>\n\n        <ion-input formControlName="city"  type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.city.hasError(\'required\') && _registerForm.controls.city.touched">\n\n        <p ion-text text-wrap>Please Enter City.</p>\n\n      </ion-item>\n\n      <!--STATE-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="pin" item-start class="text-primary"></ion-icon>\n\n          State\n\n        </ion-label>\n\n        <ion-input formControlName="state"  type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.state.hasError(\'required\') && _registerForm.controls.state.touched">\n\n        <p ion-text text-wrap>Please Enter State.</p>\n\n      </ion-item>\n\n      <!--ADDRESS-->\n\n      <ion-item>\n\n        <ion-label floating>\n\n          <ion-icon name="pin" item-start class="text-primary"></ion-icon>\n\n          Zipcode\n\n        </ion-label>\n\n        <ion-input formControlName="zipcode"  type="number"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.zipcode.hasError(\'required\') && _registerForm.controls.zipcode.touched">\n\n        <p ion-text text-wrap>Please Enter Zipcode.</p>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.zipcode.invalid  && _registerForm.controls.zipcode.dirty && _registerForm.controls.zipcode.value!=\'\'">\n\n        <p ion-text text-wrap>Please enter atleast 6 characters.</p>\n\n      </ion-item>\n\n    <button type="submit" [disabled]="!_registerForm.valid" ion-button block >Register</button>\n\n    <button (click)="_goBack()" ion-button color="danger" block><ion-icon name="ios-arrow-round-back"></ion-icon>&nbsp;&nbsp;Back</button>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\register\register.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
@@ -1633,8 +1646,11 @@ var MyApp = (function () {
             { title: 'Orders', component: __WEBPACK_IMPORTED_MODULE_6__pages_orders_orders__["a" /* OrdersPage */], icon: 'ios-cart' }
         ];
         this.app.viewWillEnter.subscribe(function () {
-            _this.user = _this.globalvars.getUserdata();
-            console.log(_this.user);
+            var sess = _this.globalvars.getUserdata();
+            console.log(sess);
+            if (sess) {
+                _this.user = sess;
+            }
             if (_this.user != null) {
                 if (_this.user.role == '2') {
                     _this.translateService.use('ta');

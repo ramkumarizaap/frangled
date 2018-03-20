@@ -7,7 +7,7 @@
     <form novalidate (submit)="_submitRegister()" [formGroup]="_registerForm" method="post">
       <!--EMAIL INPUT-->
       <ion-item class="profile-photo" (click)="_showPhoto()">
-        <img src="{{this.user_photo}}">
+          <img [src]="user_photo">
       </ion-item>
       <ion-item>
         <ion-label floating>
@@ -59,8 +59,62 @@
       <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.phone.invalid  && _registerForm.controls.phone.dirty && _registerForm.controls.phone.value!=''">
         <p ion-text text-wrap>Please enter atleast 10 characters.</p>
       </ion-item>
+      <!--ADDRESS 1-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="pin" item-start class="text-primary"></ion-icon>
+          Address 1
+        </ion-label>
+        <ion-input formControlName="address1"  type="text"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.address1.hasError('required') && _registerForm.controls.address1.touched">
+        <p ion-text text-wrap>Please Enter Address 1.</p>
+      </ion-item>
+      <!--ADDRESS 2-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="pin" item-start class="text-primary"></ion-icon>
+          Address 2
+        </ion-label>
+        <ion-input formControlName="address1"  type="text"></ion-input>
+      </ion-item>
+      <!--City-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="pin" item-start class="text-primary"></ion-icon>
+          City
+        </ion-label>
+        <ion-input formControlName="city"  type="text"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.city.hasError('required') && _registerForm.controls.city.touched">
+        <p ion-text text-wrap>Please Enter City.</p>
+      </ion-item>
+      <!--STATE-->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="pin" item-start class="text-primary"></ion-icon>
+          State
+        </ion-label>
+        <ion-input formControlName="state"  type="text"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.state.hasError('required') && _registerForm.controls.state.touched">
+        <p ion-text text-wrap>Please Enter State.</p>
+      </ion-item>
       <!--ADDRESS-->
-    <button type="submit" ion-button block >Register</button>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="pin" item-start class="text-primary"></ion-icon>
+          Zipcode
+        </ion-label>
+        <ion-input formControlName="zipcode"  type="number"></ion-input>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.zipcode.hasError('required') && _registerForm.controls.zipcode.touched">
+        <p ion-text text-wrap>Please Enter Zipcode.</p>
+      </ion-item>
+      <ion-item class="error" no-lines no-padding *ngIf="_registerForm.controls.zipcode.invalid  && _registerForm.controls.zipcode.dirty && _registerForm.controls.zipcode.value!=''">
+        <p ion-text text-wrap>Please enter atleast 6 characters.</p>
+      </ion-item>
+    <button type="submit" [disabled]="!_registerForm.valid" ion-button block >Register</button>
     <button (click)="_goBack()" ion-button color="danger" block><ion-icon name="ios-arrow-round-back"></ion-icon>&nbsp;&nbsp;Back</button>
     </form>
   </div>

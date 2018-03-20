@@ -32,8 +32,12 @@ export class MyApp {
     ];
 
     this.app.viewWillEnter.subscribe(() => {
-       this.user = this.globalvars.getUserdata();
-       console.log(this.user);
+       let sess = this.globalvars.getUserdata();
+       console.log(sess);
+       if(sess)
+       {
+         this.user = sess;
+       }
       if(this.user!=null)
       {
         if(this.user.role=='2')

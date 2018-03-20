@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class RegisterPage {
 	public _registerForm: FormGroup;
   public formdata;
-  public user_photo = "assets/icon/user.png";
+  public user_photo:string='assets/icon/user.png';
   public _passwordInputType: string = "password";
   public _passwordIcon : string = "eye-off";
 
@@ -30,7 +30,12 @@ export class RegisterPage {
       name: ["", Validators.compose([Validators.required])],
       //PHONE
       phone: ["", Validators.compose([Validators.minLength(10)])],
-      photo: [""]
+      photo: [""],
+      address1: ["",Validators.compose([Validators.required])],
+      address2: [""],
+      city: ["",Validators.compose([Validators.required])],
+      state: ["",Validators.compose([Validators.required])],
+      zipcode: ["",Validators.compose([Validators.required,Validators.minLength(6)])],
     });
   }
 
@@ -76,16 +81,17 @@ export class RegisterPage {
   {
     const options: CameraOptions = {
         quality: 100,
-        targetWidth: 900,
-        targetHeight: 600,
+        targetWidth: 300,
+        targetHeight: 300,
+        sourceType: this.camera.PictureSourceType.CAMERA,
+        allowEdit: false,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
+        mediaType: this.camera.MediaType.PICTURE,
+        saveToPhotoAlbum: false
       }
       this.camera.getPicture(options).then((imageData) => {
-          // this._registerForm.value.photo = 'data:image/jpeg;base64,' + imageData;
-          // this.user_photo = 'data:image/jpeg;base64,' + imageData;
-          alert('data:image/jpeg;base64,' + imageData);
+          this.updateURI(imageData);
         })
       .catch((err) => {
         let error = this.alertCtrl.create({
@@ -96,6 +102,11 @@ export class RegisterPage {
         error.present();
         return false;
       });
+  }
+  updateURI(imageData)
+  {
+    this._registerForm.value.photo = 'data:image/jpeg;base64,' + imageData;
+    this.user_photo = 'data:image/jpeg;base64,' + imageData;
   }
   _goBack()
   {
@@ -108,7 +119,7 @@ export class RegisterPage {
     if(this._registerForm.valid)
     {
       let load = this.loader.create({
-        content:"Pleasw Wait..."
+        content:"Please Wait..."
       });
       load.present();
       this.commonService.registerBuyer(this._registerForm.value).then((res)=>{

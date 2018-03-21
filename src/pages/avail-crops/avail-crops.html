@@ -12,7 +12,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-	<ion-card *ngFor="let c of crops" (click)="_showAction(c)">
+	<!-- <ion-card *ngFor="let c of crops" (click)="_showAction(c)">
 	  <ion-card-header>
 	    <b>{{c.crop | translate}}</b>
 	  </ion-card-header>
@@ -20,7 +20,21 @@
 	    <p class="qty-label" text-left>{{'Available Quantity' | translate}}</p>
       <p class="value-label" text-right>{{c.quantity}}</p>
 	  </ion-card-content>
-	</ion-card>
+	</ion-card> -->
+   <ion-list class="crop-list">
+    <ion-item *ngFor="let c of crops" (click)="_showAction(c)">
+      <img src="{{c.image}}">
+        <p class='title'>{{c.crop | translate}}</p>
+      <ion-row>
+        <p class="qty-label" text-left float-left>{{'Available Quantity' | translate}}</p>
+        <p class="value-label" text-right float-right>{{c.quantity}}</p>
+      </ion-row>
+      <ion-row>
+        <p class="price-label" text-left float-left>{{'Price' | translate}}</p>
+        <p class="price-value" text-right float-right>{{'Rs.' | translate}}{{c.price}}</p>
+      </ion-row>        
+    </ion-item>
+  </ion-list>
 	<ion-fab right bottom>
     <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>
   </ion-fab>

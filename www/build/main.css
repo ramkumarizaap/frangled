@@ -25698,6 +25698,8 @@ ion-navbar.toolbar {
 .user-profile img {
   width: 60px;
   height: 50px;
+  border-radius: 100%;
+  border: 2px solid #ccc;
 }
 
 .user-profile h3 {
@@ -25745,6 +25747,46 @@ page-avail-crops ion-card-content {
 page-avail-crops p.value-label {
   width: 100px;
   float: right;
+}
+
+page-avail-crops .crop-list ion-item:nth-child(even) {
+  border-right: none;
+}
+
+page-avail-crops .crop-list ion-item {
+  border-right: 1px solid #3c3c3c;
+  border-bottom: 1px solid #3c3c3c;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+page-avail-crops ion-item img {
+  max-height: 80px;
+  max-width: 100px;
+  height: 80px;
+}
+
+page-avail-crops p.qty-label, page-avail-crops p.value-label, page-avail-crops p.price-label, page-avail-crops p.price-value {
+  font-size: 12px;
+  width: auto;
+}
+
+page-avail-crops p.title {
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+}
+
+page-avail-crops ion-row {
+  display: block !important;
+  width: 100%;
+  clear: both;
+}
+
+page-avail-crops p.price-value {
+  color: red;
+  font-weight: bold;
 }
 
 page-crop-add form {

@@ -59,5 +59,10 @@
  	 "OK":"OK",
  	 "Crops List":"Crops List",
  	 "Buyer Name":"Buyer Name",
- 	 "Customer Details":"Customer Details"
+ 	 "Customer Details":"Customer Details",
+ 	 "Farmers List":"Farmers List",
+ 	 "Sort By":"Sort By",
+ 	 "Order Now":"Order Now",
+ 	 "No Crops Found.":"No Crops Found.",
+ 	 "Crops saved successfully.":"Crops saved successfully."
 }

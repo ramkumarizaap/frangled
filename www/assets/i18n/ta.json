@@ -56,5 +56,10 @@
  	 "OK":"சரி",
  	 "Crops List":"பயிர்கள்",
  	 "Buyer Name":"வாடிக்கையாளர்",
- 	 "Customer Details":"வாடிக்கையாளர் விவரம்"
+ 	 "Customer Details":"வாடிக்கையாளர் விவரம்",
+ 	 "Farmers List":"விவசாயிகள்",
+ 	 "Sort By":"வரிசை",
+ 	 "Order Now":"இப்போது வாங்க",
+ 	 "No Crops Found.":"பயிர்கள் இல்லை.",
+ 	 "Crops saved successfully.":"பயிர்கள் வெற்றிகரமாக சேமிக்கப்பட்டன."
  	}

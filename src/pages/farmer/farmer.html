@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title *ngIf="!_searchField">Farmers List</ion-title>
+    <ion-title *ngIf="!_searchField">{{'Farmers List' | translate}}</ion-title>
     <ion-searchbar [(ngModel)]="searchTerm" (ionCancel)="clearFilter($event)" (ionInput)="setFilteredItems($event)" *ngIf="_searchField" class="searchfield" type="text" placeholder="Search..."></ion-searchbar>
     <ion-buttons end>
       <button ion-button *ngIf="!_searchField" tappable (click)="_showSearchInput()">
@@ -12,19 +12,22 @@
       <button *ngIf="_searchField" ion-button tappable (click)="_hideSearchInput()">
         <ion-icon name="ios-close-circle"></ion-icon>
       </button>
+      <button ion-button tappable (click)="_changeLanguage(lang)">
+        {{'EN' | translate}}
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <button full ion-button (click)="_sortActionSheet()">
-    <ion-icon name="ios-funnel">&nbsp;&nbsp;</ion-icon> Sort By : {{sortedBy}}
+    <ion-icon name="ios-funnel">&nbsp;&nbsp;</ion-icon> {{'Sort By' | translate}} : {{sortedBy | translate}}
   </button>
   <ion-list>
     <ion-item *ngFor="let f of farmers" (click)="_gotoFarmer(f)">
       <p>{{f.name}}</p>
-      <p>{{f.price}}</p>
-      <p>Quantity Available : {{f.quantity}}</p>
+      <p>{{'Rs.' | translate}}{{f.price}}</p>
+      <p>{{'Available Quantity' | translate}} : {{f.quantity}} {{'kg' | translate}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

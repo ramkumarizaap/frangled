@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  public user={role:'',name:"Guest"};
+  public user={role:'',name:"Guest",photo:'assets/icon/user.png'};
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any,icon:string}>;
@@ -42,6 +42,8 @@ export class MyApp {
       {
         if(this.user.role=='2')
         {
+          if(this.user.photo=='' || this.user.photo==null)
+            this.user.photo = 'assets/icon/user.png';
           this.translateService.use('ta');
            this.pages = [
               { title: 'My Crops', component: AvailCropsPage,icon:'ios-nutrition' },

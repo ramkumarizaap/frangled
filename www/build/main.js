@@ -9,7 +9,7 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_regexPatterns__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__register_register__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__avail_crops_avail_crops__ = __webpack_require__(64);
@@ -17,7 +17,7 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_barcode_scanner__ = __webpack_require__(248);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_xml2js__ = __webpack_require__(339);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_xml2js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_xml2js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -358,7 +358,7 @@ webpackEmptyAsyncContext.id = 193;
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -411,6 +411,7 @@ var GlobalVars = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_detail_farmer_detail__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -424,22 +425,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import xml2js from 'xml2js';
+
 var FarmerPage = (function () {
-    function FarmerPage(params, nav, alertCtl, loader, actionCtrl, commonService) {
+    function FarmerPage(params, nav, alertCtl, loader, actionCtrl, commonService, translateService) {
         this.params = params;
         this.nav = nav;
         this.alertCtl = alertCtl;
         this.loader = loader;
         this.actionCtrl = actionCtrl;
         this.commonService = commonService;
+        this.translateService = translateService;
         this.isDesc = false;
         this.sortedBy = 'Name';
+        this.lang = 'ta';
         this.crop = this.params.get('id');
         if (this.crop)
             this.getFarmers(this.crop.id);
         console.log(this.crop);
     }
+    FarmerPage.prototype._changeLanguage = function (l) {
+        if (l == "ta")
+            this.lang = "en";
+        else
+            this.lang = "ta";
+        this.translateService.use(l);
+    };
     FarmerPage.prototype._gotoFarmer = function (f) {
         if (f === void 0) { f = ''; }
         console.log(f);
@@ -480,31 +490,31 @@ var FarmerPage = (function () {
     FarmerPage.prototype._sortActionSheet = function () {
         var _this = this;
         var action = this.actionCtrl.create({
-            title: 'Sort By',
+            title: this.translateService.instant('Sort By'),
             buttons: [
                 {
-                    text: 'Name',
+                    text: this.translateService.instant('Name'),
                     handler: function () {
                         _this._sort('name');
                         _this.sortedBy = 'Name';
                     }
                 },
                 {
-                    text: 'Price',
+                    text: this.translateService.instant('Price'),
                     handler: function () {
                         _this._sort('price');
                         _this.sortedBy = 'Price';
                     }
                 },
                 {
-                    text: 'Quantity',
+                    text: this.translateService.instant('Quantity'),
                     handler: function () {
                         _this._sort('quantity');
                         _this.sortedBy = 'Quantity';
                     }
                 },
                 {
-                    text: 'Cancel',
+                    text: this.translateService.instant('Cancel'),
                     role: 'cancel',
                     handler: function () {
                         console.log('Cancel clicked');
@@ -532,12 +542,12 @@ var FarmerPage = (function () {
     };
     FarmerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-farmer',template:/*ion-inline-start:"F:\frangled\src\pages\farmer\farmer.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title *ngIf="!_searchField">Farmers List</ion-title>\n\n    <ion-searchbar [(ngModel)]="searchTerm" (ionCancel)="clearFilter($event)" (ionInput)="setFilteredItems($event)" *ngIf="_searchField" class="searchfield" type="text" placeholder="Search..."></ion-searchbar>\n\n    <ion-buttons end>\n\n      <button ion-button *ngIf="!_searchField" tappable (click)="_showSearchInput()">\n\n        <ion-icon name="ios-search"></ion-icon>\n\n      </button>\n\n      <button *ngIf="_searchField" ion-button tappable (click)="_hideSearchInput()">\n\n        <ion-icon name="ios-close-circle"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button full ion-button (click)="_sortActionSheet()">\n\n    <ion-icon name="ios-funnel">&nbsp;&nbsp;</ion-icon> Sort By : {{sortedBy}}\n\n  </button>\n\n  <ion-list>\n\n    <ion-item *ngFor="let f of farmers" (click)="_gotoFarmer(f)">\n\n      <p>{{f.name}}</p>\n\n      <p>{{f.price}}</p>\n\n      <p>Quantity Available : {{f.quantity}}</p>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer\farmer.html"*/
+            selector: 'page-farmer',template:/*ion-inline-start:"F:\frangled\src\pages\farmer\farmer.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title *ngIf="!_searchField">{{\'Farmers List\' | translate}}</ion-title>\n\n    <ion-searchbar [(ngModel)]="searchTerm" (ionCancel)="clearFilter($event)" (ionInput)="setFilteredItems($event)" *ngIf="_searchField" class="searchfield" type="text" placeholder="Search..."></ion-searchbar>\n\n    <ion-buttons end>\n\n      <button ion-button *ngIf="!_searchField" tappable (click)="_showSearchInput()">\n\n        <ion-icon name="ios-search"></ion-icon>\n\n      </button>\n\n      <button *ngIf="_searchField" ion-button tappable (click)="_hideSearchInput()">\n\n        <ion-icon name="ios-close-circle"></ion-icon>\n\n      </button>\n\n      <button ion-button tappable (click)="_changeLanguage(lang)">\n\n        {{\'EN\' | translate}}\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button full ion-button (click)="_sortActionSheet()">\n\n    <ion-icon name="ios-funnel">&nbsp;&nbsp;</ion-icon> {{\'Sort By\' | translate}} : {{sortedBy | translate}}\n\n  </button>\n\n  <ion-list>\n\n    <ion-item *ngFor="let f of farmers" (click)="_gotoFarmer(f)">\n\n      <p>{{f.name}}</p>\n\n      <p>{{\'Rs.\' | translate}}{{f.price}}</p>\n\n      <p>{{\'Available Quantity\' | translate}} : {{f.quantity}} {{\'kg\' | translate}}</p>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer\farmer.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */]])
+            __WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */], __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["c" /* TranslateService */]])
     ], FarmerPage);
     return FarmerPage;
 }());
@@ -554,9 +564,10 @@ var FarmerPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -573,8 +584,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 // import xml2js from 'xml2js';
+
 var FarmerDetailPage = (function () {
-    function FarmerDetailPage(params, nav, commonService, alertCtrl, loader, globalvars, launchNavigator) {
+    function FarmerDetailPage(params, nav, commonService, alertCtrl, loader, globalvars, launchNavigator, translateService) {
         this.params = params;
         this.nav = nav;
         this.commonService = commonService;
@@ -582,11 +594,20 @@ var FarmerDetailPage = (function () {
         this.loader = loader;
         this.globalvars = globalvars;
         this.launchNavigator = launchNavigator;
+        this.translateService = translateService;
+        this.lang = 'ta';
         this.user = { id: '', address1: '', address2: '', city: '', state: '', zip: '' };
         this.farmer = this.params.get('id');
         console.log(this.farmer);
         this.user = this.globalvars.getUserdata();
     }
+    FarmerDetailPage.prototype._changeLanguage = function (l) {
+        if (l == "ta")
+            this.lang = "en";
+        else
+            this.lang = "ta";
+        this.translateService.use(l);
+    };
     FarmerDetailPage.prototype._orderNow = function (crop_id, farmer_id, price, qty) {
         var _this = this;
         console.log(crop_id, farmer_id, price, qty);
@@ -610,19 +631,9 @@ var FarmerDetailPage = (function () {
                     text: 'Save',
                     handler: function (data) {
                         var q = data.quantity;
-                        _this.order = { crop_id: crop_id, farmer_id: farmer_id, price: price, qty: q };
                         console.log(qty, q);
-                        if (q >= qty) {
-                            var error = _this.alertCtrl.create({
-                                title: 'Sorry',
-                                message: 'You have entered more quantity than available quantity',
-                                buttons: ['OK']
-                            });
-                            error.present();
-                            return false;
-                        }
-                        else
-                            _this._saveOrder(_this.order);
+                        _this.order = { user_id: _this.user.id, crop_id: crop_id, farmer_id: farmer_id, price: price, qty: q };
+                        _this._saveOrder(_this.order);
                     }
                 }
             ]
@@ -653,18 +664,22 @@ var FarmerDetailPage = (function () {
                 }, 3000);
             }
             else {
+                load.dismiss();
                 var error = _this.alertCtrl.create({
                     title: 'Error',
-                    message: "Can't able to order right now."
+                    message: res.msg,
+                    buttons: ['OK']
                 });
                 error.present();
                 return false;
             }
         })
             .catch(function (err) {
+            load.dismiss();
             var error = _this.alertCtrl.create({
                 title: 'Error',
-                message: "Can't able to order right now."
+                message: err,
+                buttons: ['OK']
             });
             error.present();
             return false;
@@ -688,11 +703,11 @@ var FarmerDetailPage = (function () {
     };
     FarmerDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-farmer-detail',template:/*ion-inline-start:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{farmer.name}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<ion-list>\n\n		<ion-item>\n\n			<ion-icon name="ios-call">&nbsp;&nbsp;</ion-icon>\n\n				Phone : {{farmer.phone}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pin">&nbsp;&nbsp;</ion-icon>\n\n				{{farmer.address1}}, {{farmer.address2}}, {{farmer.city}}, {{farmer.state}}, IN\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pricetag">&nbsp;&nbsp;</ion-icon>\n\n				Price : {{farmer.price}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-basket">&nbsp;&nbsp;</ion-icon>\n\n				Available Quantity : {{farmer.quantity}}\n\n		</ion-item>\n\n	</ion-list>\n\n	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">\n\n		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>\n\n		Order Now\n\n	</button>\n\n	<button (click)="_getDirections(farmer)" ion-button block color="dark">\n\n		<ion-icon name="ios-navigate">&nbsp;&nbsp;</ion-icon>\n\n		Get Directions\n\n	</button>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/
+            selector: 'page-farmer-detail',template:/*ion-inline-start:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{farmer.name}}</ion-title>\n\n    <ion-buttons end>\n\n    	<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        {{\'EN\' | translate}}\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<ion-list>\n\n		<ion-item>\n\n			<ion-icon name="ios-call">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Phone\' | translate}} : {{farmer.phone}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pin">&nbsp;&nbsp;</ion-icon>\n\n				{{farmer.address1}}, {{farmer.address2}}, {{farmer.city}}, {{farmer.state}}, IN\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pricetag">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Price\' | translate}} : {{farmer.price}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-basket">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Available Quantity\' | translate}} : {{farmer.quantity}}\n\n		</ion-item>\n\n	</ion-list>\n\n	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">\n\n		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Order Now\' | translate}}\n\n	</button>\n\n	<button (click)="_getDirections(farmer)" ion-button block color="dark">\n\n		<ion-icon name="ios-navigate">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Get Directions\' | translate}}\n\n	</button>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__["a" /* GlobalVars */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__["a" /* LaunchNavigator */]])
+            __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__["a" /* GlobalVars */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__["a" /* LaunchNavigator */], __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]])
     ], FarmerDetailPage);
     return FarmerDetailPage;
 }());
@@ -709,8 +724,8 @@ var FarmerDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__avail_crops_avail_crops__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -757,9 +772,9 @@ var CropAddPage = (function () {
         })
             .catch(function (err) {
             var error = _this.alertCrl.create({
-                title: 'Error',
-                message: 'No Crops Found.',
-                buttons: ['OK']
+                title: _this.translateService.instant('Error'),
+                message: _this.translateService.instant('No Crops Found.'),
+                buttons: [_this.translateService.instant('OK')]
             });
             error.present();
             return false;
@@ -792,7 +807,7 @@ var CropAddPage = (function () {
                         message: res.msg,
                         buttons: [
                             {
-                                text: "OK",
+                                text: _this.translateService.instant('OK'),
                                 handler: function () {
                                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__avail_crops_avail_crops__["a" /* AvailCropsPage */]);
                                 }
@@ -805,7 +820,7 @@ var CropAddPage = (function () {
                     var fail = _this.alertCrl.create({
                         title: _this.translateService.instant('Error'),
                         message: res.msg,
-                        buttons: ['OK']
+                        buttons: [_this.translateService.instant('OK')]
                     });
                     fail.present();
                     return false;
@@ -814,9 +829,9 @@ var CropAddPage = (function () {
                 .catch(function (err) {
                 load.dismiss();
                 var error = _this.alertCrl.create({
-                    title: 'Error',
+                    title: _this.translateService.instant('Error'),
                     message: err,
-                    buttons: ['OK']
+                    buttons: [_this.translateService.instant('OK')]
                 });
                 error.present();
                 return false;
@@ -855,10 +870,10 @@ var CropAddPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_detail_order_detail__ = __webpack_require__(242);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -967,9 +982,9 @@ var OrdersPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_call_number__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_launch_navigator__ = __webpack_require__(130);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1062,10 +1077,10 @@ var OrderDetailPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyOrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_list_order_list__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1164,9 +1179,9 @@ var MyOrdersPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_call_number__ = __webpack_require__(131);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1332,11 +1347,12 @@ var RegisterPage = (function () {
                 {
                     text: 'Take a Picture',
                     handler: function () {
-                        _this._gotoCamera();
+                        _this._gotoCamera(_this.camera.PictureSourceType.CAMERA);
                     }
                 }, {
                     text: 'Choose from Album',
                     handler: function () {
+                        _this._gotoCamera(_this.camera.PictureSourceType.PHOTOLIBRARY);
                     }
                 }, {
                     text: 'Cancel',
@@ -1349,13 +1365,13 @@ var RegisterPage = (function () {
         });
         actionSheet.present();
     };
-    RegisterPage.prototype._gotoCamera = function () {
+    RegisterPage.prototype._gotoCamera = function (type) {
         var _this = this;
         var options = {
             quality: 100,
             targetWidth: 300,
             targetHeight: 300,
-            sourceType: this.camera.PictureSourceType.CAMERA,
+            sourceType: type,
             allowEdit: false,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
@@ -1378,7 +1394,6 @@ var RegisterPage = (function () {
     RegisterPage.prototype.updateURI = function (imageData) {
         this._registerForm.value.photo = 'data:image/jpeg;base64,' + imageData;
         this.user_photo = 'data:image/jpeg;base64,' + imageData;
-        alert(this.user_photo);
     };
     RegisterPage.prototype._goBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
@@ -1388,7 +1403,7 @@ var RegisterPage = (function () {
         // console.log(this._registerForm.value);
         if (this._registerForm.valid) {
             var load_1 = this.loader.create({
-                content: "Pleasw Wait..."
+                content: "Please Wait..."
             });
             load_1.present();
             this.commonService.registerBuyer(this._registerForm.value).then(function (res) {
@@ -1477,9 +1492,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_barcode_scanner__ = __webpack_require__(248);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_globalVars__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_common_http__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ngx_translate_http_loader__ = __webpack_require__(367);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_call_number__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_launch_navigator__ = __webpack_require__(130);
@@ -1606,8 +1621,8 @@ function HttpLoaderFactory(http) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_orders_orders__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_my_orders_my_orders__ = __webpack_require__(243);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_login_login__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1637,7 +1652,7 @@ var MyApp = (function () {
         this.splashScreen = splashScreen;
         this.translateService = translateService;
         this.globalvars = globalvars;
-        this.user = { role: '', name: "Guest" };
+        this.user = { role: '', name: "Guest", photo: 'assets/icon/user.png' };
         this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* LoginPage */];
         this.initializeApp();
         // used for an example of ngFor and navigation
@@ -1653,6 +1668,8 @@ var MyApp = (function () {
             }
             if (_this.user != null) {
                 if (_this.user.role == '2') {
+                    if (_this.user.photo == '' || _this.user.photo == null)
+                        _this.user.photo = 'assets/icon/user.png';
                     _this.translateService.use('ta');
                     _this.pages = [
                         { title: 'My Crops', component: __WEBPACK_IMPORTED_MODULE_5__pages_avail_crops_avail_crops__["a" /* AvailCropsPage */], icon: 'ios-nutrition' },
@@ -1693,7 +1710,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"F:\frangled\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar class="menu-logo">\n      <ion-title><img src="assets/icon/food.png"> \n        <p>NewFrangled Purchasing</p></ion-title>\n        <div class="user-profile">\n          <img src="assets/icon/user.png">\n          <h3>Hello, {{user.name}}</h3>\n        </div>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon name="{{p.icon}}"></ion-icon>&nbsp;&nbsp;{{p.title | translate}}\n      </button>\n      <button menuClose ion-item (click)="_logout()">\n        <ion-icon name="ios-power"></ion-icon>&nbsp;&nbsp;{{\'Logout\' | translate}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"F:\frangled\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"F:\frangled\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar class="menu-logo">\n      <ion-title><img src="assets/icon/food.png"> \n        <p>NewFrangled Purchasing</p></ion-title>\n        <div class="user-profile">\n          <img [src]=user.photo>\n          <h3>Hello, {{user.name}}</h3>\n        </div>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon name="{{p.icon}}"></ion-icon>&nbsp;&nbsp;{{p.title | translate}}\n      </button>\n      <button menuClose ion-item (click)="_logout()">\n        <ion-icon name="ios-power"></ion-icon>&nbsp;&nbsp;{{\'Logout\' | translate}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"F:\frangled\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__["a" /* GlobalVars */]])
@@ -1795,7 +1812,7 @@ var ListPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_farmer__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1950,8 +1967,8 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__crop_add_crop_add__ = __webpack_require__(240);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2098,7 +2115,7 @@ var AvailCropsPage = (function () {
     };
     AvailCropsPage = AvailCropsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-avail-crops',template:/*ion-inline-start:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Crops List\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<ion-card *ngFor="let c of crops" (click)="_showAction(c)">\n\n	  <ion-card-header>\n\n	    <b>{{c.crop | translate}}</b>\n\n	  </ion-card-header>\n\n	  <ion-card-content>\n\n	    <p class="qty-label" text-left>{{\'Available Quantity\' | translate}}</p>\n\n      <p class="value-label" text-right>{{c.quantity}}</p>\n\n	  </ion-card-content>\n\n	</ion-card>\n\n	<ion-fab right bottom>\n\n    <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>\n\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/
+            selector: 'page-avail-crops',template:/*ion-inline-start:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Crops List\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<!-- <ion-card *ngFor="let c of crops" (click)="_showAction(c)">\n\n	  <ion-card-header>\n\n	    <b>{{c.crop | translate}}</b>\n\n	  </ion-card-header>\n\n	  <ion-card-content>\n\n	    <p class="qty-label" text-left>{{\'Available Quantity\' | translate}}</p>\n\n      <p class="value-label" text-right>{{c.quantity}}</p>\n\n	  </ion-card-content>\n\n	</ion-card> -->\n\n   <ion-list class="crop-list">\n\n    <ion-item *ngFor="let c of crops" (click)="_showAction(c)">\n\n      <img src="{{c.image}}">\n\n        <p class=\'title\'>{{c.crop | translate}}</p>\n\n      <ion-row>\n\n        <p class="qty-label" text-left float-left>{{\'Available Quantity\' | translate}}</p>\n\n        <p class="value-label" text-right float-right>{{c.quantity}}</p>\n\n      </ion-row>\n\n      <ion-row>\n\n        <p class="price-label" text-left float-left>{{\'Price\' | translate}}</p>\n\n        <p class="price-value" text-right float-right>{{\'Rs.\' | translate}}{{c.price}}</p>\n\n      </ion-row>        \n\n    </ion-item>\n\n  </ion-list>\n\n	<ion-fab right bottom>\n\n    <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>\n\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */], __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__["a" /* GlobalVars */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],

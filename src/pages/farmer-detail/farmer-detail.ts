@@ -5,6 +5,7 @@ import { GlobalVars } from '../../providers/globalVars';
 import { HomePage } from '../home/home';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 // import xml2js from 'xml2js';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'page-farmer-detail',
   templateUrl: 'farmer-detail.html'
@@ -13,15 +14,24 @@ export class FarmerDetailPage
 {
 	public farmer;
 	public order;
+	public lang = 'ta';
 	public user = {id:'',address1:'',address2:'',city:'',state:'',zip:''};
 	constructor(public params:NavParams,public nav:NavController,public commonService:CommonService,
 		public alertCtrl:AlertController,public loader:LoadingController,
-		public globalvars:GlobalVars,public launchNavigator: LaunchNavigator)
+		public globalvars:GlobalVars,public launchNavigator: LaunchNavigator,public translateService: TranslateService)
 	{
 		this.farmer = this.params.get('id');
 		console.log(this.farmer);
 		this.user = this.globalvars.getUserdata();
 	}
+	_changeLanguage(l)
+	  {
+	    if(l=="ta")
+	      this.lang = "en";
+	    else
+	      this.lang = "ta";
+	    this.translateService.use(l);
+	  }
 	_orderNow(crop_id,farmer_id,price,qty:number)
 	{
 		console.log(crop_id,farmer_id,price,qty);
@@ -45,20 +55,9 @@ export class FarmerDetailPage
           text: 'Save',
           handler: (data) => {
           	let q:number = data.quantity;
-          	this.order = {crop_id:crop_id,farmer_id:farmer_id,price:price,qty:q};
           	console.log(qty,q);
-          	if(q >= qty)
-          	{
-          		let error = this.alertCtrl.create({
-          			title:'Sorry',
-          			message:'You have entered more quantity than available quantity',
-          			buttons:['OK']
-          		});
-          		error.present();
-          		return false;
-          	}
-          	else
-          		this._saveOrder(this.order);
+          	this.order = {user_id:this.user.id,crop_id:crop_id,farmer_id:farmer_id,price:price,qty:q};
+          	this._saveOrder(this.order);
           }
         }
       ]
@@ -92,18 +91,22 @@ export class FarmerDetailPage
 			}
 			else
 			{
+				load.dismiss();
 				let error = this.alertCtrl.create({
 					title:'Error',
-					message:"Can't able to order right now."
+					message:res.msg,
+					buttons:['OK']
 				});
 				error.present();
 				return false;
 			}
 		})
 		.catch((err)=>{
+			load.dismiss();
 			let error = this.alertCtrl.create({
 					title:'Error',
-					message:"Can't able to order right now."
+					message:err,
+					buttons:['OK']
 				});
 				error.present();
 				return false;

@@ -59,11 +59,12 @@ export class RegisterPage {
         {
           text: 'Take a Picture',
           handler: () => {
-            this._gotoCamera();
+            this._gotoCamera(this.camera.PictureSourceType.CAMERA);
           }
         },{
           text: 'Choose from Album',
           handler: () => {
+            this._gotoCamera(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },{
           text: 'Cancel',
@@ -77,13 +78,13 @@ export class RegisterPage {
     actionSheet.present();
   }
 
-  _gotoCamera()
+  _gotoCamera(type)
   {
     const options: CameraOptions = {
         quality: 100,
         targetWidth: 300,
         targetHeight: 300,
-        sourceType: this.camera.PictureSourceType.CAMERA,
+        sourceType: type,
         allowEdit: false,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,

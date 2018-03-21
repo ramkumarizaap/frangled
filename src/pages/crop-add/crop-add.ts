@@ -36,9 +36,9 @@ export class CropAddPage {
 		})
 		.catch((err)=>{
 			let error = this.alertCrl.create({
-				title:'Error',
-				message:'No Crops Found.',
-				buttons:['OK']
+				title:this.translateService.instant('Error'),
+				message:this.translateService.instant('No Crops Found.'),
+				buttons:[this.translateService.instant('OK')]
 			});
 			error.present();
 			return false;
@@ -72,10 +72,10 @@ export class CropAddPage {
 				{
 					let success = this.alertCrl.create({
 						title:this.translateService.instant('Success'),
-						message:res.msg,
+						message:this.translateService.instant(res.msg),
 						buttons:[
 						{
-							text:"OK",
+							text:this.translateService.instant('OK'),
 							handler:()=>{
 								this.nav.setRoot(AvailCropsPage);
 							}
@@ -87,7 +87,7 @@ export class CropAddPage {
 					let fail = this.alertCrl.create({
 						title:this.translateService.instant('Error'),
 						message:res.msg,
-						buttons:['OK']
+						buttons:[this.translateService.instant('OK')]
 					});
 					fail.present();
 					return false;
@@ -96,9 +96,9 @@ export class CropAddPage {
 			.catch((err)=>{
 				load.dismiss();
 				let error = this.alertCrl.create({
-					title:'Error',
+					title:this.translateService.instant('Error'),
 					message:err,
-					buttons:['OK']
+					buttons:[this.translateService.instant('OK')]
 				});
 				error.present();
 				return false;

@@ -28,6 +28,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CallNumber } from '@ionic-native/call-number';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Camera } from '@ionic-native/camera';
+import { MediaCapture } from '@ionic-native/media-capture';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 @NgModule({
   declarations: [
     MyApp,
@@ -82,6 +85,9 @@ import { Camera } from '@ionic-native/camera';
     CallNumber,
     LaunchNavigator,
     Camera,
+    MediaCapture,
+    FileTransfer,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

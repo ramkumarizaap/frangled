@@ -41,4 +41,7 @@
       <button ion-button [disabled]="!_cropForm.valid" type="submit">{{'Save' | translate}}</button>
       <button color="danger" ion-button type="button" (click)="_goBack()">{{'Cancel' | translate}}</button>
     </form>
+    <ion-fab right bottom>
+      <button (click)="_addVideo()" color="dark" ion-fab mini><ion-icon name="videocam"></ion-icon></button>
+    </ion-fab>
 </ion-content>

@@ -8,14 +8,14 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_regexPatterns__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_regexPatterns__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__register_register__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__register_register__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__avail_crops_avail_crops__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_barcode_scanner__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_xml2js__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_barcode_scanner__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_xml2js__ = __webpack_require__(342);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_xml2js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_xml2js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -196,7 +196,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"F:\frangled\src\pages\login\login.html"*/'<ion-content>\n  <div class="logo">\n      <img src="assets/icon/food.png">\n      <h3>NEWFANGLED PURCHASING</h3>\n  </div>\n  <div class="form-div">\n    <form novalidate="" [formGroup]="_loginForm" (submit)="_login()" method="post">\n      <ion-item>\n        <ion-label floating>\n          <ion-icon name="mail" item-start class="text-primary"></ion-icon>\n          {{\'Email\' | translate}}\n        </ion-label>\n        <ion-input  formControlName="email" type="email"></ion-input>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.hasError(\'required\') && _loginForm.controls.email.touched">\n        <p ion-text text-wrap>Please Enter Email-ID</p>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.invalid  && _loginForm.controls.email.dirty && _loginForm.controls.email.value!=\'\'">\n        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>\n          <ion-icon name="key" item-start class="text-primary"></ion-icon>\n          {{\'Password\' | translate}}\n        </ion-label>\n        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>\n      </ion-item>\n       <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.hasError(\'required\') && _loginForm.controls.password.touched">\n        <p ion-text text-wrap>Please Enter Password</p>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.invalid  && _loginForm.controls.password.dirty && _loginForm.controls.password.value!=\'\'">\n        <p ion-text text-wrap>Please enter atleast 6 characters.</p>\n      </ion-item>\n      <button type="submit" [disabled]="!_loginForm.valid" ion-button block>{{\'Login\' | translate}}</button>\n      <button type="button" ion-button block color="danger" (click)="_gotoRegisterPage()">{{\'Signup as Buyer\' | translate}}</button>\n      <button type="button" ion-button block color="dark" (click)="_scanCard()">{{\'Signup as Farmer\' | translate}}</button>\n    </form>\n  </div>\n  <ion-item class="lang-select">\n    <ion-label>{{\'Select Language\' | translate}}</ion-label>\n    <ion-select placeholder="Select Language" (ionChange)="_changeLanguage($event)">\n      <ion-option selected value=\'en\'>English</ion-option>\n      <ion-option value=\'ta\'>{{\'Tamil\'| translate}}</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\login\login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"F:\frangled\src\pages\login\login.html"*/'<ion-content>\n  <div class="logo">\n      <img src="assets/icon/food.png">\n      <h3>NEW FRANGLED PURCHASING</h3>\n  </div>\n  <div class="form-div">\n    <form novalidate="" [formGroup]="_loginForm" (submit)="_login()" method="post">\n      <ion-item>\n        <ion-label floating>\n          <ion-icon name="mail" item-start class="text-primary"></ion-icon>\n          {{\'Email\' | translate}}\n        </ion-label>\n        <ion-input  formControlName="email" type="email"></ion-input>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.hasError(\'required\') && _loginForm.controls.email.touched">\n        <p ion-text text-wrap>Please Enter Email-ID</p>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.email.invalid  && _loginForm.controls.email.dirty && _loginForm.controls.email.value!=\'\'">\n        <p ion-text text-wrap>Please use correct email format, e.g.:someone@domain.com.</p>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>\n          <ion-icon name="key" item-start class="text-primary"></ion-icon>\n          {{\'Password\' | translate}}\n        </ion-label>\n        <ion-input  formControlName="password" [type]="_passwordInputType"></ion-input>\n      </ion-item>\n       <ion-icon float-right name="{{_passwordIcon}}" (click)="_toggleViewPassword($event)" class="password-icon"></ion-icon>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.hasError(\'required\') && _loginForm.controls.password.touched">\n        <p ion-text text-wrap>Please Enter Password</p>\n      </ion-item>\n      <ion-item class="error" no-lines no-padding *ngIf="_loginForm.controls.password.invalid  && _loginForm.controls.password.dirty && _loginForm.controls.password.value!=\'\'">\n        <p ion-text text-wrap>Please enter atleast 6 characters.</p>\n      </ion-item>\n      <button type="submit" [disabled]="!_loginForm.valid" ion-button block>{{\'Login\' | translate}}</button>\n      <button type="button" ion-button block color="danger" (click)="_gotoRegisterPage()">{{\'Signup as Buyer\' | translate}}</button>\n      <button type="button" ion-button block color="dark" (click)="_scanCard()">{{\'Signup as Farmer\' | translate}}</button>\n    </form>\n  </div>\n  <ion-item class="lang-select">\n    <ion-label>{{\'Select Language\' | translate}}</ion-label>\n    <ion-select placeholder="Select Language" (ionChange)="_changeLanguage($event)">\n      <ion-option selected value=\'en\'>English</ion-option>\n      <ion-option value=\'ta\'>{{\'Tamil\'| translate}}</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\login\login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
@@ -234,10 +234,10 @@ webpackEmptyAsyncContext.id = 151;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommonService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -406,11 +406,21 @@ var GlobalVars = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SERVER_URL; });
+var SERVER_URL = "http://162.144.41.156/~izaapinn/ram/frangile/";
+//# sourceMappingURL=config.js.map
+
+/***/ }),
+
+/***/ 238:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FarmerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_detail_farmer_detail__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_detail_farmer_detail__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -556,7 +566,7 @@ var FarmerPage = (function () {
 
 /***/ }),
 
-/***/ 238:
+/***/ 239:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -703,7 +713,7 @@ var FarmerDetailPage = (function () {
     };
     FarmerDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-farmer-detail',template:/*ion-inline-start:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{farmer.name}}</ion-title>\n\n    <ion-buttons end>\n\n    	<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        {{\'EN\' | translate}}\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<ion-list>\n\n		<ion-item>\n\n			<ion-icon name="ios-call">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Phone\' | translate}} : {{farmer.phone}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pin">&nbsp;&nbsp;</ion-icon>\n\n				{{farmer.address1}}, {{farmer.address2}}, {{farmer.city}}, {{farmer.state}}, IN\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pricetag">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Price\' | translate}} : {{farmer.price}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-basket">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Available Quantity\' | translate}} : {{farmer.quantity}}\n\n		</ion-item>\n\n	</ion-list>\n\n	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">\n\n		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Order Now\' | translate}}\n\n	</button>\n\n	<button (click)="_getDirections(farmer)" ion-button block color="dark">\n\n		<ion-icon name="ios-navigate">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Get Directions\' | translate}}\n\n	</button>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/
+            selector: 'page-farmer-detail',template:/*ion-inline-start:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{farmer.name}}</ion-title>\n\n    <ion-buttons end>\n\n    	<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        {{\'EN\' | translate}}\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<ion-list>\n\n		<ion-item>\n\n			<ion-icon name="ios-call">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Phone\' | translate}} : {{farmer.phone}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pin">&nbsp;&nbsp;</ion-icon>\n\n				{{farmer.address1}}, {{farmer.address2}}, {{farmer.city}}, {{farmer.state}}, IN\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-pricetag">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Price\' | translate}} : {{farmer.price}}\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-icon name="ios-basket">&nbsp;&nbsp;</ion-icon>\n\n				{{\'Available Quantity\' | translate}} : {{farmer.quantity}}\n\n		</ion-item>\n\n	</ion-list>\n\n	<div *ngIf="farmer.video!=null" class="video-div" style="width: 100%;height:200px;">\n\n		<video style="width:100%;height:200px;" controls>\n\n		  <source src="http://162.144.41.156/~izaapinn/ram/frangile/assets/uploads/{{farmer.farmer_id}}/{{farmer.video}}" type="video/mp4">\n\n		</video>\n\n	</div>\n\n	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">\n\n		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Order Now\' | translate}}\n\n	</button>\n\n	<button (click)="_getDirections(farmer)" ion-button block color="dark">\n\n		<ion-icon name="ios-navigate">&nbsp;&nbsp;</ion-icon>\n\n		{{\'Get Directions\' | translate}}\n\n	</button>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\farmer-detail\farmer-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
@@ -716,7 +726,7 @@ var FarmerDetailPage = (function () {
 
 /***/ }),
 
-/***/ 241:
+/***/ 242:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -729,7 +739,10 @@ var FarmerDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__avail_crops_avail_crops__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_media_capture__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_media_capture__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_file_transfer__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_config__ = __webpack_require__(237);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -749,8 +762,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+var apiUrl = __WEBPACK_IMPORTED_MODULE_11__providers_config__["a" /* SERVER_URL */];
 var CropAddPage = (function () {
-    function CropAddPage(alertCrl, nav, loader, commonService, translateService, globalVars, _formBuilder, params, actionCtrl, camera, media) {
+    function CropAddPage(alertCrl, nav, loader, commonService, translateService, globalVars, _formBuilder, params, actionCtrl, camera, media, transfer, file) {
         this.alertCrl = alertCrl;
         this.nav = nav;
         this.loader = loader;
@@ -762,8 +779,10 @@ var CropAddPage = (function () {
         this.actionCtrl = actionCtrl;
         this.camera = camera;
         this.media = media;
+        this.transfer = transfer;
+        this.file = file;
         this.lang = 'ta';
-        this.crop = { f_id: '', crop: '', quantity: '', price: '', crop_id: '' };
+        this.crop = { f_id: '', crop: '', quantity: '', price: '', crop_id: '', crop_video: '' };
         this.user = this.globalVars.getUserdata();
         var id = this.params.get('id');
         if (id)
@@ -796,6 +815,7 @@ var CropAddPage = (function () {
             //PASSWORD
             quantity: [this.crop.quantity, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])],
             price: [this.crop.price, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])],
+            crop_video: [this.crop.crop_video],
         });
     };
     CropAddPage.prototype._submitCrop = function () {
@@ -805,7 +825,7 @@ var CropAddPage = (function () {
         });
         load.present();
         if (this._cropForm.valid) {
-            console.log(this._cropForm.value);
+            this._cropForm.value.crop_video = this.crop.crop_video;
             this.commonService.postCrop(this._cropForm.value).then(function (res) {
                 load.dismiss();
                 if (res.status == "success") {
@@ -848,20 +868,20 @@ var CropAddPage = (function () {
     CropAddPage.prototype._addVideo = function () {
         var _this = this;
         var actionSheet = this.actionCtrl.create({
-            title: 'Choose your video type',
+            title: this.translateService.instant('Choose your video type'),
             buttons: [
                 {
-                    text: 'Take a Video',
+                    text: this.translateService.instant('Take a Video'),
                     handler: function () {
                         _this._gotoCamera();
                     }
                 }, {
-                    text: 'Choose from Album',
+                    text: this.translateService.instant('Choose from Album'),
                     handler: function () {
                         _this._gotoGallery();
                     }
                 }, {
-                    text: 'Cancel',
+                    text: this.translateService.instant('Cancel'),
                     role: 'cancel',
                     handler: function () {
                         console.log('Cancel clicked');
@@ -872,16 +892,24 @@ var CropAddPage = (function () {
         actionSheet.present();
     };
     CropAddPage.prototype._gotoCamera = function () {
+        var _this = this;
         var options = { limit: 1, duration: 30, quality: 100 };
         this.media.captureVideo(options)
             .then(function (data) {
-            alert("Success: " + JSON.stringify(data));
+            _this._fileTransfer(data[0].fullPath);
         })
             .catch(function (err) {
-            alert("Error: " + JSON.stringify(err));
+            var error = _this.alertCrl.create({
+                title: _this.translateService.instant("Error"),
+                message: _this.translateService.instant('Something went wrong'),
+                buttons: ['OK']
+            });
+            error.present();
+            return false;
         });
     };
     CropAddPage.prototype._gotoGallery = function () {
+        var _this = this;
         var options = {
             quality: 100,
             targetWidth: 300,
@@ -893,12 +921,57 @@ var CropAddPage = (function () {
             saveToPhotoAlbum: false
         };
         this.camera.getPicture(options).then(function (imageData) {
-            // this.updateURI(imageData);
-            alert("Success :" + imageData);
+            _this._fileTransfer("file://" + imageData);
         })
             .catch(function (err) {
-            alert("Error :" + err);
+            var error = _this.alertCrl.create({
+                title: _this.translateService.instant("Error"),
+                message: _this.translateService.instant('Something went wrong'),
+                buttons: ['OK']
+            });
+            error.present();
+            return false;
         });
+    };
+    CropAddPage.prototype._fileTransfer = function (name) {
+        var _this = this;
+        var load = this.loader.create({
+            content: this.translateService.instant('Uploading...')
+        });
+        load.present();
+        var fileTransfer = this.transfer.create();
+        var options = {
+            fileKey: 'file',
+            httpMethod: 'post',
+            fileName: 'video.mp4',
+            chunkedMode: false,
+            mimeType: "multipart/form-data",
+            params: { 'fileName': "video.mp4" }
+        };
+        fileTransfer.upload(name, apiUrl + 'service/upload_video', options)
+            .then(function (res) {
+            load.dismiss();
+            var img = JSON.parse(res.response);
+            _this.updateVideo(img.data);
+            var succ = _this.alertCrl.create({
+                title: _this.translateService.instant("Success"),
+                message: _this.translateService.instant('Video uploaded successfully.'),
+                buttons: ['OK']
+            });
+            succ.present();
+        }, function (err) {
+            load.dismiss();
+            var error = _this.alertCrl.create({
+                title: _this.translateService.instant("Error"),
+                message: _this.translateService.instant('Something went wrong'),
+                buttons: ['OK']
+            });
+            error.present();
+            return false;
+        });
+    };
+    CropAddPage.prototype.updateVideo = function (name) {
+        this.crop.crop_video = name;
     };
     CropAddPage.prototype._changeLanguage = function (l) {
         if (l == "ta")
@@ -912,12 +985,12 @@ var CropAddPage = (function () {
     };
     CropAddPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-crop-add',template:/*ion-inline-start:"F:\frangled\src\pages\crop-add\crop-add.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Add Crop\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form action="" [formGroup]="_cropForm" (submit)="_submitCrop()" method="post" novalidate>\n\n      <ion-input formControlName="farmer_id" type="hidden"></ion-input>\n\n      <ion-input formControlName="crop_id" type="hidden"></ion-input>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Name\' | translate}}</ion-label>\n\n        <ion-select formControlName="name" cancelText="{{\'Cancel\' | translate}}" okText="{{\'OK\' | translate}}">\n\n          <ion-option *ngFor="let c of crops" [value]="c.id">{{c.name | translate}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.name.hasError(\'required\') && _cropForm.controls.name.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Name\' | translate}}</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Quantity\' | translate}}</ion-label>\n\n        <ion-input formControlName="quantity" type="number"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.quantity.hasError(\'required\') && _cropForm.controls.quantity.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Quantity\' | translate}}</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Price\' | translate}}</ion-label>\n\n        <ion-input formControlName="price" type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.price.hasError(\'required\') && _cropForm.controls.price.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Price\' | translate}}</p>\n\n      </ion-item>\n\n      <button ion-button [disabled]="!_cropForm.valid" type="submit">{{\'Save\' | translate}}</button>\n\n      <button color="danger" ion-button type="button" (click)="_goBack()">{{\'Cancel\' | translate}}</button>\n\n    </form>\n\n    <ion-fab right bottom>\n\n      <button (click)="_addVideo()" color="dark" ion-fab mini><ion-icon name="videocam"></ion-icon></button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\crop-add\crop-add.html"*/
+            selector: 'page-crop-add',template:/*ion-inline-start:"F:\frangled\src\pages\crop-add\crop-add.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Add Crop\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form action="" [formGroup]="_cropForm" (submit)="_submitCrop()" method="post" novalidate>\n\n      <ion-input formControlName="farmer_id" type="hidden"></ion-input>\n\n      <ion-input formControlName="crop_video" type=""></ion-input>\n\n      <ion-input formControlName="crop_id" type="hidden"></ion-input>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Name\' | translate}}</ion-label>\n\n        <ion-select formControlName="name" cancelText="{{\'Cancel\' | translate}}" okText="{{\'OK\' | translate}}">\n\n          <ion-option *ngFor="let c of crops" [value]="c.id">{{c.name | translate}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.name.hasError(\'required\') && _cropForm.controls.name.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Name\' | translate}}</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Quantity\' | translate}}</ion-label>\n\n        <ion-input formControlName="quantity" type="number"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.quantity.hasError(\'required\') && _cropForm.controls.quantity.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Quantity\' | translate}}</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>{{\'Price\' | translate}}</ion-label>\n\n        <ion-input formControlName="price" type="text"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="error" no-lines no-padding *ngIf="_cropForm.controls.price.hasError(\'required\') && _cropForm.controls.price.touched">\n\n        <p ion-text text-wrap>{{\'Please Enter Price\' | translate}}</p>\n\n      </ion-item>\n\n      <button ion-button [disabled]="!_cropForm.valid" type="submit">{{\'Save\' | translate}}</button>\n\n      <button color="danger" ion-button type="button" (click)="_goBack()">{{\'Cancel\' | translate}}</button>\n\n    </form>\n\n    <ion-fab right bottom>\n\n      <button (click)="_addVideo()" color="dark" ion-fab mini><ion-icon name="videocam"></ion-icon></button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\crop-add\crop-add.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */], __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__["a" /* GlobalVars */],
             __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_media_capture__["a" /* MediaCapture */]])
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_media_capture__["a" /* MediaCapture */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_file__["a" /* File */]])
     ], CropAddPage);
     return CropAddPage;
 }());
@@ -926,7 +999,7 @@ var CropAddPage = (function () {
 
 /***/ }),
 
-/***/ 243:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -935,7 +1008,7 @@ var CropAddPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_detail_order_detail__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_detail_order_detail__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1038,7 +1111,7 @@ var OrdersPage = (function () {
 
 /***/ }),
 
-/***/ 244:
+/***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1133,7 +1206,7 @@ var OrderDetailPage = (function () {
 
 /***/ }),
 
-/***/ 245:
+/***/ 248:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1142,7 +1215,7 @@ var OrderDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_list_order_list__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__order_list_order_list__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1235,7 +1308,7 @@ var MyOrdersPage = (function () {
 
 /***/ }),
 
-/***/ 246:
+/***/ 249:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1312,7 +1385,7 @@ var OrderListPage = (function () {
 
 /***/ }),
 
-/***/ 247:
+/***/ 250:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1329,7 +1402,7 @@ var regexPatterns = {
 
 /***/ }),
 
-/***/ 248:
+/***/ 251:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1337,7 +1410,7 @@ var regexPatterns = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_regexPatterns__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_regexPatterns__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__ = __webpack_require__(131);
@@ -1514,13 +1587,13 @@ var RegisterPage = (function () {
 
 /***/ }),
 
-/***/ 260:
+/***/ 263:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(283);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1528,47 +1601,51 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 280:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* unused harmony export HttpLoaderFactory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(324);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_register_register__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_farmer_farmer__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_farmer_detail_farmer_detail__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_orders_orders__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_order_detail_order_detail__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_order_list_order_list__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_register_register__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_farmer_farmer__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_farmer_detail_farmer_detail__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_orders_orders__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_order_detail_order_detail__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_order_list_order_list__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_avail_crops_avail_crops__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_my_orders_my_orders__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_crop_add_crop_add__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_my_orders_my_orders__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_crop_add_crop_add__ = __webpack_require__(242);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_barcode_scanner__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_barcode_scanner__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_globalVars__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_common_http__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_common_http__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ngx_translate_http_loader__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ngx_translate_http_loader__ = __webpack_require__(370);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_call_number__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_launch_navigator__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_camera__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_media_capture__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_media_capture__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_file_transfer__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_file__ = __webpack_require__(245);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1659,6 +1736,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_26__ionic_native_launch_navigator__["a" /* LaunchNavigator */],
                 __WEBPACK_IMPORTED_MODULE_27__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_28__ionic_native_media_capture__["a" /* MediaCapture */],
+                __WEBPACK_IMPORTED_MODULE_29__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_30__ionic_native_file__["a" /* File */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* IonicErrorHandler */] }
             ]
         })
@@ -1673,7 +1752,7 @@ function HttpLoaderFactory(http) {
 
 /***/ }),
 
-/***/ 321:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1684,8 +1763,8 @@ function HttpLoaderFactory(http) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_avail_crops_avail_crops__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_orders_orders__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_my_orders_my_orders__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_orders_orders__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_my_orders_my_orders__ = __webpack_require__(248);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_login_login__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__ = __webpack_require__(18);
@@ -1719,7 +1798,7 @@ var MyApp = (function () {
         this.translateService = translateService;
         this.globalvars = globalvars;
         this.user = { role: '', name: "Guest", photo: 'assets/icon/user.png' };
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* LoginPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
@@ -1773,35 +1852,18 @@ var MyApp = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"F:\frangled\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar class="menu-logo">\n      <ion-title><img src="assets/icon/food.png"> \n        <p>NewFrangled Purchasing</p></ion-title>\n        <div class="user-profile">\n          <img [src]=user.photo>\n          <h3>Hello, {{user.name}}</h3>\n        </div>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon name="{{p.icon}}"></ion-icon>&nbsp;&nbsp;{{p.title | translate}}\n      </button>\n      <button menuClose ion-item (click)="_logout()">\n        <ion-icon name="ios-power"></ion-icon>&nbsp;&nbsp;{{\'Logout\' | translate}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"F:\frangled\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__["a" /* GlobalVars */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ngx_translate_core__["c" /* TranslateService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__["a" /* GlobalVars */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_globalVars__["a" /* GlobalVars */]) === "function" && _g || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 330:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SERVER_URL; });
-var SERVER_URL = "http://162.144.41.156/~izaapinn/ram/frangile/";
-//# sourceMappingURL=config.js.map
-
-/***/ }),
-
-/***/ 351:
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ }),
 
@@ -1812,7 +1874,14 @@ var SERVER_URL = "http://162.144.41.156/~izaapinn/ram/frangile/";
 
 /***/ }),
 
-/***/ 362:
+/***/ 355:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1877,7 +1946,7 @@ var ListPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_farmer__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__farmer_farmer__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2035,7 +2104,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_commonService__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__crop_add_crop_add__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__crop_add_crop_add__ = __webpack_require__(242);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2181,7 +2250,7 @@ var AvailCropsPage = (function () {
     };
     AvailCropsPage = AvailCropsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-avail-crops',template:/*ion-inline-start:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Crops List\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<!-- <ion-card *ngFor="let c of crops" (click)="_showAction(c)">\n\n	  <ion-card-header>\n\n	    <b>{{c.crop | translate}}</b>\n\n	  </ion-card-header>\n\n	  <ion-card-content>\n\n	    <p class="qty-label" text-left>{{\'Available Quantity\' | translate}}</p>\n\n      <p class="value-label" text-right>{{c.quantity}}</p>\n\n	  </ion-card-content>\n\n	</ion-card> -->\n\n   <ion-list class="crop-list">\n\n    <ion-item *ngFor="let c of crops" (click)="_showAction(c)">\n\n      <img src="{{c.image}}">\n\n        <p class=\'title\'>{{c.crop | translate}}</p>\n\n      <ion-row>\n\n        <p class="qty-label" text-left float-left>{{\'Available Quantity\' | translate}}</p>\n\n        <p class="value-label" text-right float-right>{{c.quantity}}</p>\n\n      </ion-row>\n\n      <ion-row>\n\n        <p class="price-label" text-left float-left>{{\'Price\' | translate}}</p>\n\n        <p class="price-value" text-right float-right>{{\'Rs.\' | translate}}{{c.price}}</p>\n\n      </ion-row>        \n\n    </ion-item>\n\n  </ion-list>\n\n	<ion-fab right bottom>\n\n    <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>\n\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/
+            selector: 'page-avail-crops',template:/*ion-inline-start:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{\'Crops List\' | translate}}</ion-title>\n\n     <ion-buttons end>\n\n     		<button ion-button tappable (click)="_changeLanguage(lang)">\n\n        	{{\'EN\' | translate}}\n\n      	</button>\n\n     </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n	<!-- <ion-card *ngFor="let c of crops" (click)="_showAction(c)">\n\n	  <ion-card-header>\n\n	    <b>{{c.crop | translate}}</b>\n\n	  </ion-card-header>\n\n	  <ion-card-content>\n\n	    <p class="qty-label" text-left>{{\'Available Quantity\' | translate}}</p>\n\n      <p class="value-label" text-right>{{c.quantity}}</p>\n\n	  </ion-card-content>\n\n	</ion-card> -->\n\n   <ion-list class="crop-list">\n\n    <ion-item *ngFor="let c of crops" (click)="_showAction(c)">\n\n      <img src="{{c.image}}">\n\n        <p class=\'title\'>{{c.crop | translate}}</p>\n\n      <ion-row>\n\n        <p class="qty-label" text-left float-left>{{\'Available Quantity\' | translate}}</p>\n\n        <p class="value-label" text-right float-right>{{c.quantity}}{{\'kg\' | translate}}</p>\n\n      </ion-row>\n\n      <ion-row>\n\n        <p class="price-label" text-left float-left>{{\'Price\' | translate}}</p>\n\n        <p class="price-value" text-right float-right>{{\'Rs.\' | translate}}{{c.price}}</p>\n\n      </ion-row>        \n\n    </ion-item>\n\n  </ion-list>\n\n	<ion-fab right bottom>\n\n    <button (click)="_addCrop()" ion-fab mini><ion-icon name="add"></ion-icon></button>\n\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"F:\frangled\src\pages\avail-crops\avail-crops.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_commonService__["a" /* CommonService */], __WEBPACK_IMPORTED_MODULE_3__providers_globalVars__["a" /* GlobalVars */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
@@ -2195,5 +2264,5 @@ var AvailCropsPage = (function () {
 
 /***/ })
 
-},[260]);
+},[263]);
 //# sourceMappingURL=main.js.map

@@ -17,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   public user={role:'',name:"Guest",photo:'assets/icon/user.png'};
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any,icon:string}>;
 

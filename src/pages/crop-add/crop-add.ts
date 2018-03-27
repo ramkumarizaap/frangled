@@ -21,7 +21,7 @@ export class CropAddPage {
 	public crops;
 	public _cropForm:FormGroup;
 	public user;
-	public crop = {f_id:'',crop:'',quantity:'',price:'',crop_id:''};
+	public crop = {f_id:'',crop:'',quantity:'',price:'',crop_id:'',crop_video:''};
 	constructor(public alertCrl:AlertController,public nav:NavController,public loader:LoadingController,
 	public commonService:CommonService,public translateService:TranslateService,public globalVars:GlobalVars,
 	public _formBuilder:FormBuilder,public params:NavParams,public actionCtrl:ActionSheetController,
@@ -60,6 +60,7 @@ export class CropAddPage {
       //PASSWORD
       quantity: [this.crop.quantity, Validators.compose([Validators.required])],
       price: [this.crop.price, Validators.compose([Validators.required])],
+      crop_video:[this.crop.crop_video],
     });
 	}
 
@@ -71,7 +72,7 @@ export class CropAddPage {
 		load.present();
 		if(this._cropForm.valid)
 		{
-			console.log(this._cropForm.value);
+			this._cropForm.value.crop_video = this.crop.crop_video;
 			this.commonService.postCrop(this._cropForm.value).then((res)=>{
 				load.dismiss();
 				if(res.status=="success")
@@ -115,20 +116,20 @@ export class CropAddPage {
 	_addVideo()
 	{
 		let actionSheet = this.actionCtrl.create({
-      title: 'Choose your video type',
+      title: this.translateService.instant('Choose your video type'),
       buttons: [
         {
-          text: 'Take a Video',
+          text: this.translateService.instant('Take a Video'),
           handler: () => {
             this._gotoCamera();
           }
         },{
-          text: 'Choose from Album',
+          text: this.translateService.instant('Choose from Album'),
           handler: () => {
             this._gotoGallery();
           }
         },{
-          text: 'Cancel',
+          text: this.translateService.instant('Cancel'),
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
@@ -144,15 +145,16 @@ export class CropAddPage {
 		let options: CaptureVideoOptions = { limit: 1,duration:30,quality:100 };
 		this.media.captureVideo(options)
 		  .then((data: MediaFile[]) => {
-		  	alert("Success: "+JSON.stringify(data));
-		  	//name:->video name
-		  	//localURL:->video Local URL
-		  	//type:->video type // video/mp4
-		  	//size:->video size
-		  	//fullPath:->video full path
+		  	this._fileTransfer(data[0].fullPath);
 		  })
 		  .catch((err: CaptureError) =>{
-				alert("Error: "+JSON.stringify(err));
+		  	let error = this.alertCrl.create({
+		  		title:this.translateService.instant("Error"),
+		  		message:this.translateService.instant('Something went wrong'),
+		  		buttons:['OK']
+		  	});
+		  	error.present();
+		  	return false;
 		  });
 	}
 	_gotoGallery()
@@ -168,33 +170,62 @@ export class CropAddPage {
         saveToPhotoAlbum: false
       }
       this.camera.getPicture(options).then((imageData) => {
-          // this.updateURI(imageData);
-          alert("Success :"+imageData);
+          this._fileTransfer("file://"+imageData);
         })
       .catch((err) => {
-        	alert("Error :"+err);
+        let error = this.alertCrl.create({
+		  		title:this.translateService.instant("Error"),
+		  		message:this.translateService.instant('Something went wrong'),
+		  		buttons:['OK']
+		  	});
+		  	error.present();
+		  	return false;
       });
 	}
 
 	_fileTransfer(name)
 	{
+		let load = this.loader.create({
+			content:this.translateService.instant('Uploading...')
+		});
+		load.present();
 		const fileTransfer: FileTransferObject = this.transfer.create();
 		let options: FileUploadOptions =
 		{
      fileKey: 'file',
      httpMethod : 'post',
      fileName: 'video.mp4',
-     headers: {'Content-Type': 'multipart/form-data'}
+     chunkedMode: false,
+     mimeType: "multipart/form-data",
+     params : {'fileName': "video.mp4"}
 	  }
 
-	  fileTransfer.upload(name,SERVER_URL+'service/upload_video' , options)
-	   .then((data) => {
-	     alert("Success :"+JSON.stringify(data));
+	  fileTransfer.upload(name,apiUrl+'service/upload_video' , options)
+	   .then((res) => {
+	   	load.dismiss();
+	   	let img = JSON.parse(res.response);
+	   	this.updateVideo(img.data);
+	     	let succ = this.alertCrl.create({
+		  		title:this.translateService.instant("Success"),
+		  		message:this.translateService.instant('Video uploaded successfully.'),
+		  		buttons:['OK']
+		  	});
+		  	succ.present();
 	   }, (err) => {
-	     alert("Error :"+JSON.stringify(err));
+	   	load.dismiss();
+	    let error = this.alertCrl.create({
+		  		title:this.translateService.instant("Error"),
+		  		message:this.translateService.instant('Something went wrong'),
+		  		buttons:['OK']
+		  	});
+		  	error.present();
+		  	return false;
 	   })
 	}
-
+	updateVideo(name)
+	{
+		this.crop.crop_video = name;
+	}
 	_changeLanguage(l)
   {
     if(l=="ta")

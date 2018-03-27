@@ -64,5 +64,11 @@
  	 "Sort By":"Sort By",
  	 "Order Now":"Order Now",
  	 "No Crops Found.":"No Crops Found.",
- 	 "Crops saved successfully.":"Crops saved successfully."
+ 	 "Crops saved successfully.":"Crops saved successfully.",
+ 	 "Choose your video type":"Choose your video type",
+ 	 "Take a Video":"Take a Video",
+ 	 "Choose from Album":"Choose from Album",
+ 	 "Something went wrong":"Something went wrong",
+ 	 "Uploading...":"Uploading...",
+ 	 "Video uploaded successfully.":"Video uploaded successfully."
 }

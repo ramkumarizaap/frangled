@@ -30,6 +30,11 @@
 				{{'Available Quantity' | translate}} : {{farmer.quantity}}
 		</ion-item>
 	</ion-list>
+	<div *ngIf="farmer.video!=null" class="video-div" style="width: 100%;height:200px;">
+		<video style="width:100%;height:200px;" controls>
+		  <source src="http://162.144.41.156/~izaapinn/ram/frangile/assets/uploads/{{farmer.farmer_id}}/{{farmer.video}}" type="video/mp4">
+		</video>
+	</div>
 	<button ion-button block color="danger" (click)="_orderNow(farmer.crop_id,farmer.farmer_id,farmer.price,farmer.quantity)">
 		<ion-icon name="ios-cart">&nbsp;&nbsp;</ion-icon>
 		{{'Order Now' | translate}}

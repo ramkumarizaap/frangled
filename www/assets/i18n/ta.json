@@ -54,6 +54,8 @@
  	 "Please Enter Quantity":"தயவு செய்து அளவு சேர்க்கவும்",
  	 "Please Enter Price":"தயவு செய்து விலை சேர்க்கவும்",
  	 "OK":"சரி",
+ 	 "Success":"வெற்றி",
+ 	 "Error":"பிழை",
  	 "Crops List":"பயிர்கள்",
  	 "Buyer Name":"வாடிக்கையாளர்",
  	 "Customer Details":"வாடிக்கையாளர் விவரம்",
@@ -61,5 +63,11 @@
  	 "Sort By":"வரிசை",
  	 "Order Now":"இப்போது வாங்க",
  	 "No Crops Found.":"பயிர்கள் இல்லை.",
- 	 "Crops saved successfully.":"பயிர்கள் வெற்றிகரமாக சேமிக்கப்பட்டன."
+ 	 "Crops saved successfully.":"பயிர்கள் வெற்றிகரமாக சேமிக்கப்பட்டன.",
+ 	 "Choose your video type":"உங்கள் வீடியோ வகையைத் தேர்வுசெய்யவும்",
+ 	 "Take a Video":"வீடியோ எடுக்கவும்",
+ 	 "Choose from Album":"ஆல்பத்தில் இருந்து தேர்வு செய்யவும்",
+ 	 "Something went wrong":"ஏதோ தவறாகிவிட்டது",
+ 	 "Uploading...":"பதிவேற்றுகிறது...",
+ 	 "Video uploaded successfully.":"வீடியோ வெற்றிகரமாக பதிவேற்றப்பட்டது"
  	}
